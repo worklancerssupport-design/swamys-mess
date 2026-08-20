@@ -1,0 +1,233 @@
+[
+  {
+    "id": "e4028010-4493-4a11-a8cf-3c4826b1f230",
+    "category": "Breakfast",
+    "item": "Idly(2Nos)",
+    "price": "40",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Idli1.jpg"
+  },
+  {
+    "id": "f51a2f4c-88ab-400a-b328-98e94f1c1fdf",
+    "category": "Breakfast",
+    "item": "Pongal/Kitchadi",
+    "price": "70",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Pongal_Dish.JPG"
+  },
+  {
+    "id": "90b11c97-6a56-4c20-a612-fb6d2269a9bc",
+    "category": "Breakfast",
+    "item": "Medu Vadai(1pc)",
+    "price": "20",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Medu_Vadas.JPG"
+  },
+  {
+    "id": "c1f727c6-da01-443b-8519-c603bc21db26",
+    "category": "Breakfast",
+    "item": "Sambar Vadai(2pc)",
+    "price": "60",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Vada_sambar.jpg"
+  },
+  {
+    "id": "a988d8b1-3df7-4566-b333-e18e38f6d2f3",
+    "category": "Breakfast",
+    "item": "Curd Vadai(2pc)",
+    "price": "60",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Dahi_Vada.jpg"
+  },
+  {
+    "id": "e0b093f4-7e90-48e0-a7d5-d2279cd8f1c8",
+    "category": "Breakfast",
+    "item": "Rava Upma",
+    "price": "70",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Semolina_Upma.jpg"
+  },
+  {
+    "id": "36318350-f8f4-4ea0-bd68-1e4285b14e9e",
+    "category": "Breakfast",
+    "item": "Idiyappam (3pc)",
+    "price": "70",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Idiyappam.jpg"
+  },
+  {
+    "id": "a7b749cd-a249-43c3-b4e8-8db99cb9e863",
+    "category": "Breakfast",
+    "item": "Semiya Upma",
+    "price": "70",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Seviya_Upma.jpg"
+  },
+  {
+    "id": "22ef87c6-5dfa-4be7-9bb3-a3dbd0a1ec88",
+    "category": "Breakfast",
+    "item": "Poori Masala (3pc)",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Poori_masala.jpg"
+  },
+  {
+    "id": "0d9c49d7-8e62-4467-bfec-6b2a417dd037",
+    "category": "Dosa varieties",
+    "item": "Plain Dosa",
+    "price": "60",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Dosa_%28South_Indian_cuisine%29.jpg"
+  },
+  {
+    "id": "761da4b0-a0f1-4df2-a9b8-d4bc2222fa15",
+    "category": "Dosa varieties",
+    "item": "Plain Rava Dosa",
+    "price": "90",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Rava_dosa.JPG"
+  },
+  {
+    "id": "3df49c4f-c0fb-40c2-bd77-1be91ef14a38",
+    "category": "Dosa varieties",
+    "item": "Masala Dosa",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Masala_dosa_%2896279%29.jpg"
+  },
+  {
+    "id": "a5e9cd41-a3f2-4bdc-bb6f-a6bb167104b2",
+    "category": "Dosa varieties",
+    "item": "Onion Rava Dosa",
+    "price": "100",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Rawa_Onion_Dosa_%2848754301486%29.jpg"
+  },
+  {
+    "id": "03833b3b-82ee-4da7-95ec-3162fb16bfef",
+    "category": "Dosa varieties",
+    "item": "Onion Dosa",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Onion_Dosa.jpg"
+  },
+  {
+    "id": "e331bfa2-3a5e-4ed1-a75d-389d0cf3f445",
+    "category": "Dosa varieties",
+    "item": "Onion Podi Dosa",
+    "price": "90",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Ghee_Masala_Dosa_-_CTR_Shri_Sagar%2C_Bangalore_-_Karnataka_-_PXL4702.jpg"
+  },
+  {
+    "id": "18cf32c1-2f78-43f1-b9ff-29a3a107efda",
+    "category": "Dosa varieties",
+    "item": "Kal Dosa(2pc)",
+    "price": "70",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kal_Dosa.jpg"
+  },
+  {
+    "id": "6d3c3328-ea24-4f51-87a4-0c5a0df12423",
+    "category": "Dosa varieties",
+    "item": "Butter Dosa",
+    "price": "100",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Dosa_and_ghee.jpg"
+  },
+  {
+    "id": "8bc345ab-d667-4638-b79e-4ff6fbdb0d83",
+    "category": "Dosa varieties",
+    "item": "Ghee Roast",
+    "price": "100",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ghee_Roast.jpg"
+  },
+  {
+    "id": "834c9c1a-8f53-4889-8d76-d309be04e13e",
+    "category": "Dosa varieties",
+    "item": "Paneer Dosa",
+    "price": "100",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Cheese_paneer_dosa.jpg"
+  },
+  {
+    "id": "1d8b7468-b732-4e4f-bfa9-064e48831b81",
+    "category": "Dosa varieties",
+    "item": "Onion Uttappam",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Onion_Tomato_Uttapam.jpg"
+  },
+  {
+    "id": "90e96417-6467-427f-94a1-0969d7b4430e",
+    "category": "Dosa varieties",
+    "item": "Onion Podi Uttappam",
+    "price": "90",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Ghee_Podi_Onion_Uthappam_-_Murugan_Idli_Shop%2C_Chennai_-_TamilNadu_-_PXL1034.jpg"
+  },
+  {
+    "id": "f516a2ef-9bf7-4954-a690-349f76a5dd46",
+    "category": "Lunch",
+    "item": "Full Meals (Parcel)",
+    "price": "160",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/An_ideal_South_Indian_Thali.jpg"
+  },
+  {
+    "id": "87b1c318-971c-43f7-b248-be314bc3a4d3",
+    "category": "Lunch",
+    "item": "Meals",
+    "price": "150",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/South_indian_meals_24.jpg"
+  },
+  {
+    "id": "e60a3d46-5ef1-4a18-8f81-5cbdb22915cd",
+    "category": "Lunch",
+    "item": "Without Rice Sambar, Rasam, Kutu Poriyal Per Set",
+    "price": "200",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/A_traditional_south_Indian_home_cooked_meal.jpg"
+  },
+  {
+    "id": "ca1f237f-5d0d-4bd2-a162-8700ef5ebf7d",
+    "category": "Dinner",
+    "item": "Chapati(2pc)",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Indian_Chapati_Made_with_Love.jpg"
+  },
+  {
+    "id": "a4d952a2-3f6e-4f51-b8ef-51a63c6cd86b",
+    "category": "Dinner",
+    "item": "Chapati - Phulka(2pc)",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Phulka.jpg"
+  },
+  {
+    "id": "96c02450-9c2b-4d40-9ecb-f1cd129df398",
+    "category": "Dinner",
+    "item": "Chola Poori",
+    "price": "80",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Chole_Bhature-Noida-UP-SP002.jpg"
+  },
+  {
+    "id": "ed7ca0c5-55ed-4e8c-8f92-56456209dc28",
+    "category": "Dinner",
+    "item": "Paneer Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg"
+  },
+  {
+    "id": "c138e6df-bb90-4eef-a847-f31623fa4d76",
+    "category": "Dinner",
+    "item": "Aloo Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Aloo_Paratha_North_Indian.jpg"
+  },
+  {
+    "id": "6704b1eb-ffcb-402a-9e1e-2e21e05efd54",
+    "category": "Dinner",
+    "item": "Cheese Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg"
+  },
+  {
+    "id": "e81d77aa-5da9-497d-aa21-415fa3a4fb42",
+    "category": "Dinner",
+    "item": "Corn Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg"
+  },
+  {
+    "id": "cb1c7df0-f1c5-430c-be39-bd2a3c7f9104",
+    "category": "Dinner",
+    "item": "Butter Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg"
+  },
+  {
+    "id": "bcbe2001-fbb3-41bb-a579-a7e84cae6978",
+    "category": "Dinner",
+    "item": "Gopi Paratha",
+    "price": "120",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Gobhi_Parantha_%28cropped%29.JPG"
+  }
+]
