@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Reorder } from "motion/react";
+import { useImageUpload } from "./ImageWidget";
 
 const ENV = import.meta.env;
 const HEADERS = {
@@ -270,6 +271,7 @@ function Card({
   const [edit, setEdit] = useState<"" | "name" | "price">("");
   const [draft, setDraft] = useState("");
   const [imgErr, setImgErr] = useState(false);
+  const openWidget = useImageUpload();
 
   function start(field: "name" | "price") {
     setDraft(field === "price" ? item.price : item.item);
@@ -294,6 +296,9 @@ function Card({
         ) : (
           <div className="card-img-ph">no image</div>
         )}
+        <button onPointerDown={stop} onClick={() => openWidget((url) => onUpdate(item.id, "image_url", url))} className="card-edit" aria-label="Edit image">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
       </div>
       <div className="card-body">
         {edit === "name" ? (
@@ -395,6 +400,8 @@ function Styles() {
 .name-input{flex:3;min-width:0;font-size:15px;padding:6px 8px;margin:-6px -8px}
 .price-input{flex:1;min-width:0;font-size:19px;font-weight:700;text-align:right;padding:6px 8px;margin:-6px -8px}
 .card-del{position:absolute;top:8px;right:8px;width:28px;height:28px;border:none;border-radius:8px;background:rgba(15,23,42,.75);color:#fff;cursor:pointer;font-size:16px;line-height:1}
+.card-edit{position:absolute;top:8px;left:8px;width:28px;height:28px;border:none;border-radius:8px;background:rgba(15,23,42,.75);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.card-edit:hover{background:rgba(15,23,42,.9)}
 .add-item{border:2px dashed #cbd5e1;background:transparent;color:#64748b;border-radius:14px;font-size:14px;cursor:pointer;min-height:100px}
 .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#0f766e;color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;box-shadow:0 6px 24px rgba(0,0,0,.2);z-index:100}
 @media(max-width:768px){
