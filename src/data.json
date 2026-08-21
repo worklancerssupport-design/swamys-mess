@@ -42,13 +42,6 @@
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Semolina_Upma.jpg"
   },
   {
-    "id": "36318350-f8f4-4ea0-bd68-1e4285b14e9e",
-    "category": "Breakfast",
-    "item": "Idiyappam (3pc)",
-    "price": "70",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Idiyappam.jpg"
-  },
-  {
     "id": "a7b749cd-a249-43c3-b4e8-8db99cb9e863",
     "category": "Breakfast",
     "item": "Semiya Upma",
@@ -61,6 +54,13 @@
     "item": "Poori Masala (3pc)",
     "price": "80",
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Poori_masala.jpg"
+  },
+  {
+    "id": "36318350-f8f4-4ea0-bd68-1e4285b14e9e",
+    "category": "Breakfast",
+    "item": "Idiyappam (3pc)",
+    "price": "70",
+    "image_url": "https://res.cloudinary.com/akjmqvws/image/upload/q_auto,f_auto/v1787298022/bysealpekbofoxscbdly.jpg"
   },
   {
     "id": "0d9c49d7-8e62-4467-bfec-6b2a417dd037",
