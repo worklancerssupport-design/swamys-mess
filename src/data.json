@@ -4,230 +4,383 @@
     "category": "Breakfast",
     "item": "Idly(2Nos)",
     "price": "40",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Idli1.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Idli1.jpg",
+    "description": ""
   },
   {
     "id": "f51a2f4c-88ab-400a-b328-98e94f1c1fdf",
     "category": "Breakfast",
     "item": "Pongal/Kitchadi",
     "price": "70",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Pongal_Dish.JPG"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/36/Pongal_Dish.JPG",
+    "description": ""
   },
   {
     "id": "90b11c97-6a56-4c20-a612-fb6d2269a9bc",
     "category": "Breakfast",
     "item": "Medu Vadai(1pc)",
     "price": "20",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Medu_Vadas.JPG"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Medu_Vadas.JPG",
+    "description": ""
   },
   {
     "id": "c1f727c6-da01-443b-8519-c603bc21db26",
     "category": "Breakfast",
     "item": "Sambar Vadai(2pc)",
     "price": "60",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Vada_sambar.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Vada_sambar.jpg",
+    "description": ""
   },
   {
     "id": "a988d8b1-3df7-4566-b333-e18e38f6d2f3",
     "category": "Breakfast",
     "item": "Curd Vadai(2pc)",
     "price": "60",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Dahi_Vada.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/Dahi_Vada.jpg",
+    "description": ""
   },
   {
     "id": "e0b093f4-7e90-48e0-a7d5-d2279cd8f1c8",
     "category": "Breakfast",
     "item": "Rava Upma",
     "price": "70",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Semolina_Upma.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Semolina_Upma.jpg",
+    "description": ""
   },
   {
     "id": "a7b749cd-a249-43c3-b4e8-8db99cb9e863",
     "category": "Breakfast",
     "item": "Semiya Upma",
     "price": "70",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Seviya_Upma.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Seviya_Upma.jpg",
+    "description": ""
   },
   {
     "id": "22ef87c6-5dfa-4be7-9bb3-a3dbd0a1ec88",
     "category": "Breakfast",
     "item": "Poori Masala (3pc)",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Poori_masala.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Poori_masala.jpg",
+    "description": ""
   },
   {
     "id": "36318350-f8f4-4ea0-bd68-1e4285b14e9e",
     "category": "Breakfast",
     "item": "Idiyappam (3pc)",
     "price": "70",
-    "image_url": "https://res.cloudinary.com/akjmqvws/image/upload/q_auto,f_auto/v1787298022/bysealpekbofoxscbdly.jpg"
+    "image_url": "https://res.cloudinary.com/akjmqvws/image/upload/q_auto,f_auto/v1787298022/bysealpekbofoxscbdly.jpg",
+    "description": ""
   },
   {
     "id": "0d9c49d7-8e62-4467-bfec-6b2a417dd037",
     "category": "Dosa varieties",
     "item": "Plain Dosa",
     "price": "60",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Dosa_%28South_Indian_cuisine%29.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Dosa_%28South_Indian_cuisine%29.jpg",
+    "description": ""
   },
   {
     "id": "761da4b0-a0f1-4df2-a9b8-d4bc2222fa15",
     "category": "Dosa varieties",
     "item": "Plain Rava Dosa",
     "price": "90",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Rava_dosa.JPG"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Rava_dosa.JPG",
+    "description": ""
   },
   {
     "id": "3df49c4f-c0fb-40c2-bd77-1be91ef14a38",
     "category": "Dosa varieties",
     "item": "Masala Dosa",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Masala_dosa_%2896279%29.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Masala_dosa_%2896279%29.jpg",
+    "description": ""
   },
   {
     "id": "a5e9cd41-a3f2-4bdc-bb6f-a6bb167104b2",
     "category": "Dosa varieties",
     "item": "Onion Rava Dosa",
     "price": "100",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Rawa_Onion_Dosa_%2848754301486%29.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Rawa_Onion_Dosa_%2848754301486%29.jpg",
+    "description": ""
   },
   {
     "id": "03833b3b-82ee-4da7-95ec-3162fb16bfef",
     "category": "Dosa varieties",
     "item": "Onion Dosa",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Onion_Dosa.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Onion_Dosa.jpg",
+    "description": ""
   },
   {
     "id": "e331bfa2-3a5e-4ed1-a75d-389d0cf3f445",
     "category": "Dosa varieties",
     "item": "Onion Podi Dosa",
     "price": "90",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Ghee_Masala_Dosa_-_CTR_Shri_Sagar%2C_Bangalore_-_Karnataka_-_PXL4702.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Ghee_Masala_Dosa_-_CTR_Shri_Sagar%2C_Bangalore_-_Karnataka_-_PXL4702.jpg",
+    "description": ""
   },
   {
     "id": "18cf32c1-2f78-43f1-b9ff-29a3a107efda",
     "category": "Dosa varieties",
     "item": "Kal Dosa(2pc)",
     "price": "70",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kal_Dosa.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Kal_Dosa.jpg",
+    "description": ""
   },
   {
     "id": "6d3c3328-ea24-4f51-87a4-0c5a0df12423",
     "category": "Dosa varieties",
     "item": "Butter Dosa",
     "price": "100",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Dosa_and_ghee.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Dosa_and_ghee.jpg",
+    "description": ""
   },
   {
     "id": "8bc345ab-d667-4638-b79e-4ff6fbdb0d83",
     "category": "Dosa varieties",
     "item": "Ghee Roast",
     "price": "100",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ghee_Roast.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Ghee_Roast.jpg",
+    "description": ""
   },
   {
     "id": "834c9c1a-8f53-4889-8d76-d309be04e13e",
     "category": "Dosa varieties",
     "item": "Paneer Dosa",
     "price": "100",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Cheese_paneer_dosa.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Cheese_paneer_dosa.jpg",
+    "description": ""
   },
   {
     "id": "1d8b7468-b732-4e4f-bfa9-064e48831b81",
     "category": "Dosa varieties",
     "item": "Onion Uttappam",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Onion_Tomato_Uttapam.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Onion_Tomato_Uttapam.jpg",
+    "description": ""
   },
   {
     "id": "90e96417-6467-427f-94a1-0969d7b4430e",
     "category": "Dosa varieties",
     "item": "Onion Podi Uttappam",
     "price": "90",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Ghee_Podi_Onion_Uthappam_-_Murugan_Idli_Shop%2C_Chennai_-_TamilNadu_-_PXL1034.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/77/Ghee_Podi_Onion_Uthappam_-_Murugan_Idli_Shop%2C_Chennai_-_TamilNadu_-_PXL1034.jpg",
+    "description": ""
   },
   {
     "id": "f516a2ef-9bf7-4954-a690-349f76a5dd46",
     "category": "Lunch",
     "item": "Full Meals (Parcel)",
     "price": "160",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/An_ideal_South_Indian_Thali.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/An_ideal_South_Indian_Thali.jpg",
+    "description": ""
   },
   {
     "id": "87b1c318-971c-43f7-b248-be314bc3a4d3",
     "category": "Lunch",
     "item": "Meals",
     "price": "150",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/South_indian_meals_24.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/South_indian_meals_24.jpg",
+    "description": ""
   },
   {
     "id": "e60a3d46-5ef1-4a18-8f81-5cbdb22915cd",
     "category": "Lunch",
     "item": "Without Rice Sambar, Rasam, Kutu Poriyal Per Set",
     "price": "200",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/A_traditional_south_Indian_home_cooked_meal.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/16/A_traditional_south_Indian_home_cooked_meal.jpg",
+    "description": ""
   },
   {
     "id": "ca1f237f-5d0d-4bd2-a162-8700ef5ebf7d",
     "category": "Dinner",
     "item": "Chapati(2pc)",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Indian_Chapati_Made_with_Love.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/Indian_Chapati_Made_with_Love.jpg",
+    "description": ""
   },
   {
     "id": "a4d952a2-3f6e-4f51-b8ef-51a63c6cd86b",
     "category": "Dinner",
     "item": "Chapati - Phulka(2pc)",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Phulka.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9e/Phulka.jpg",
+    "description": ""
   },
   {
     "id": "96c02450-9c2b-4d40-9ecb-f1cd129df398",
     "category": "Dinner",
     "item": "Chola Poori",
     "price": "80",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Chole_Bhature-Noida-UP-SP002.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Chole_Bhature-Noida-UP-SP002.jpg",
+    "description": ""
   },
   {
     "id": "ed7ca0c5-55ed-4e8c-8f92-56456209dc28",
     "category": "Dinner",
     "item": "Paneer Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg",
+    "description": ""
   },
   {
     "id": "c138e6df-bb90-4eef-a847-f31623fa4d76",
     "category": "Dinner",
     "item": "Aloo Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Aloo_Paratha_North_Indian.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Aloo_Paratha_North_Indian.jpg",
+    "description": ""
   },
   {
     "id": "6704b1eb-ffcb-402a-9e1e-2e21e05efd54",
     "category": "Dinner",
     "item": "Cheese Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Paneer_Cheese_Paratha.jpg",
+    "description": ""
   },
   {
     "id": "e81d77aa-5da9-497d-aa21-415fa3a4fb42",
     "category": "Dinner",
     "item": "Corn Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg",
+    "description": ""
   },
   {
     "id": "cb1c7df0-f1c5-430c-be39-bd2a3c7f9104",
     "category": "Dinner",
     "item": "Butter Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg",
+    "description": ""
   },
   {
     "id": "bcbe2001-fbb3-41bb-a579-a7e84cae6978",
     "category": "Dinner",
     "item": "Gopi Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Gobhi_Parantha_%28cropped%29.JPG"
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/Gobhi_Parantha_%28cropped%29.JPG",
+    "description": ""
+  },
+  {
+    "id": "cda1f362-bce9-459b-a5f1-9e61f0e77b70",
+    "category": "Catering",
+    "item": "Valagapu",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?w=600&q=80",
+    "description": "Traditional South Indian baby shower celebrating motherhood with rich, auspicious meals."
+  },
+  {
+    "id": "cced9c5e-df4f-41a3-86f1-173e26478752",
+    "category": "Catering",
+    "item": "Temple Functions",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1567337710282-00832b415979?w=600&q=80",
+    "description": "Sacred community feasts, prasadam, and traditional thali lunches prepared with ultimate purity."
+  },
+  {
+    "id": "6e41cb56-5071-42d3-8fb2-9aa5555113bd",
+    "category": "Catering",
+    "item": "Birthday Parties",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80",
+    "description": "Fun, delicious, and customized menus featuring favorites for guests of all ages."
+  },
+  {
+    "id": "0c0598b0-b8b8-4581-872a-eef1f23387c2",
+    "category": "Catering",
+    "item": "Marriage Orders",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=600&q=80",
+    "description": "Grand wedding feasts, multi-course traditional leaf service, and premium hospitality."
+  },
+  {
+    "id": "d1f71e39-4a9f-432d-bf1f-766eef4afad5",
+    "category": "Catering",
+    "item": "Seemantham",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1625398407796-82650a8c135f?w=600&q=80",
+    "description": "Traditional family rituals and prayer ceremonies accompanied by authentic, homestyle recipes."
+  },
+  {
+    "id": "236a78c3-e5b1-4f35-8264-8f81383baa89",
+    "category": "Catering",
+    "item": "Reception",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1517244683847-7456b63c5969?w=600&q=80",
+    "description": "Modern wedding reception spreads, live food counters, mocktails, and premium desserts."
+  },
+  {
+    "id": "ba59f90b-12fe-4056-9894-470382da243c",
+    "category": "Catering",
+    "item": "Engagement",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&q=80",
+    "description": "Celebrate your union with customized starters and signature main courses."
+  },
+  {
+    "id": "d1a111ec-54eb-4cc5-9c1d-72483a13a2df",
+    "category": "Catering",
+    "item": "Nichayathartham",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=600&q=80",
+    "description": "Auspicious formal engagement feasts cooked under strict hygiene and quality standards."
+  },
+  {
+    "id": "8ee87de9-b563-47d7-80f5-7c128ced3ab0",
+    "category": "Catering",
+    "item": "Sadabhishekam / Poorthi Vizha",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=600&q=80",
+    "description": "Honoring long life and golden couples with comforting traditional menus."
+  },
+  {
+    "id": "d1ea9133-b398-4ed2-932f-a2102b8430b7",
+    "category": "Catering",
+    "item": "Ayush Homam / Namakaranam",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80",
+    "description": "Naming and birthday blessing ceremonies with light, nutritious menu selections."
+  },
+  {
+    "id": "467a0be1-ed82-4247-9e9b-f5b0592b1f4b",
+    "category": "Catering",
+    "item": "Pooja & Gruhapravesam",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1610450949065-1f2841536c88?w=600&q=80",
+    "description": "Traditional housewarming feasts to bring prosperity and delight your guests."
+  },
+  {
+    "id": "e9119f28-77a0-48c4-a7ac-c336c0eb8623",
+    "category": "Catering",
+    "item": "Jatakarma & Namakarana",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=600&q=80",
+    "description": "Naming ceremony of your newborn, featuring custom traditional breakfast and lunch menus."
+  },
+  {
+    "id": "206a6073-7c0e-47f1-b6ca-fc5e25063b5f",
+    "category": "Catering",
+    "item": "Shashtiapthapoorthi",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1528495612343-9ca9f4a4de28?w=600&q=80",
+    "description": "Auspicious 60th birthday celebrations catered with classic heritage dishes."
+  },
+  {
+    "id": "19b808a4-13e0-4628-95ae-29b6cd7fa799",
+    "category": "Catering",
+    "item": "Bheema Ratha Shanthi",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=600&q=80",
+    "description": "Special 70th birthday milestone catered with pure homestyle South Indian delicacies."
+  },
+  {
+    "id": "255a591d-101f-485d-ba94-071fea4fa886",
+    "category": "Catering",
+    "item": "Sadhabhishekam",
+    "price": "",
+    "image_url": "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=600&q=80",
+    "description": "Grand 80th birthday milestones celebrated with multi-generational menus and warm service."
   }
 ]
