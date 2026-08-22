@@ -1,7 +1,7 @@
 // ============================================
 // App — Root with premium loading screen + dark mode
 // ============================================
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { UtensilsCrossed } from 'lucide-react';
 import Navbar      from './navbar/Navbar';
@@ -12,13 +12,32 @@ import CateringPage from './catering/CateringPage';
 import ContactPage  from './contact/ContactPage';
 import PdfDownloadTestPage from './menu/PdfDownloadTestPage';
 
+const ENV = import.meta.env;
+const RAW_URL = `https://raw.githubusercontent.com/${ENV.VITE_GITHUB_OWNER}/${ENV.VITE_GITHUB_REPO}/${ENV.VITE_GITHUB_BRANCH}/${ENV.VITE_GITHUB_FILE_PATH}`;
+
+async function fetchMenuData() {
+  try {
+    const r = await fetch(RAW_URL);
+    if (!r.ok) return null;
+    const items = await r.json();
+    const map = new Map();
+    for (const it of items) {
+      if (!map.has(it.category)) map.set(it.category, []);
+      map.get(it.category).push(it);
+    }
+    return Array.from(map, ([name, items]) => ({ name, items }));
+  } catch (e) {
+    console.error('Failed to fetch menu data:', e);
+    return null;
+  }
+}
+
 /* ── Premium Loading Screen ── */
 
 function LoadingScreen({ onDone }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Animate progress bar 0 → 100 over 1.8s
     const start = Date.now();
     const duration = 1800;
     const raf = () => {
@@ -128,8 +147,19 @@ function LoadingScreen({ onDone }) {
 /* ── Main App ── */
 export default function App() {
   const [loading,  setLoading]  = useState(true);
+  const [cats, setCats] = useState([]);
   const [bookCateringOpen, setBookCateringOpen] = useState(false);
   const pdfTestMode = new URLSearchParams(window.location.search).has('pdf-test');
+
+  const loadData = useCallback(async () => {
+    const data = await fetchMenuData();
+    if (data) setCats(data);
+  }, []);
+
+  useEffect(() => { loadData(); }, [loadData]);
+
+  const menuCats = cats.filter(c => c.name !== 'Catering');
+  const cateringItems = cats.find(c => c.name === 'Catering')?.items || [];
 
   return (
     <AnimatePresence mode="wait">
@@ -150,8 +180,8 @@ export default function App() {
           />
 
           <main>
-            <MenuPage onBookCatering={() => setBookCateringOpen(true)} />
-            <CateringPage onBookCatering={() => setBookCateringOpen(true)} />
+            <MenuPage cats={menuCats} onBookCatering={() => setBookCateringOpen(true)} />
+            <CateringPage items={cateringItems} onBookCatering={() => setBookCateringOpen(true)} />
             <ContactPage  />
           </main>
 

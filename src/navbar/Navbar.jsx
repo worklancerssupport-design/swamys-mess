@@ -4,7 +4,7 @@
 // ============================================
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, UtensilsCrossed, BookOpen } from 'lucide-react';
+import { Menu, X, UtensilsCrossed, Calendar } from 'lucide-react';
 
 const navLinks = [
   { label: 'Menu',     href: '#menu'     },
@@ -63,18 +63,18 @@ export default function Navbar({ onBookCatering }) {
         transition={{ duration: 0.55, ease: 'easeOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
           scrolled
-            ? 'bg-[#6D071A]/95 backdrop-blur-md shadow-xl border-b border-[#C9A227]/25'
-            : 'bg-[#4A0612]/90 border-b border-[#B8922E]/15'
+            ? 'bg-[#6D071A]/85 backdrop-blur-xl shadow-xl border-b border-[#C9A227]/25'
+            : 'bg-transparent border-b border-white/[0.06] backdrop-blur-[2px]'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1600px] mx-auto px-6 sm:px-10 lg:px-16">
           <div className="flex items-center justify-between h-16 lg:h-20">
 
             {/* ── Logo ── */}
             <motion.a
               href="#menu"
               onClick={(e) => { e.preventDefault(); handleNavClick('#menu'); }}
-              className="flex items-center gap-2.5 group flex-shrink-0"
+              className="flex items-center gap-2.5 group flex-shrink-0 drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
               whileHover={{ scale: 1.02 }}
             >
               <div className="relative">
@@ -86,24 +86,24 @@ export default function Navbar({ onBookCatering }) {
               </div>
               <div className="leading-tight">
                 <p
-                  className="font-bold text-sm lg:text-base tracking-wider text-[#FAF6ED] font-display"
+                  className="font-bold text-sm lg:text-base tracking-wider text-[#FAF6ED] font-display drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]"
                 >
                   Swamy's
                 </p>
-                <p className="text-[9px] tracking-[0.2em] uppercase text-[#C9A227] font-semibold">
+                <p className="text-[9px] tracking-[0.2em] uppercase text-[#C9A227] font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.3)]">
                   Mess & Catering
                 </p>
               </div>
             </motion.a>
 
             {/* ── Desktop Links ── */}
-            <div className="hidden md:flex items-center gap-0.5">
+            <div className="hidden md:flex items-center gap-2">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
-                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`relative px-5 py-2 rounded-lg text-base font-bold transition-all duration-200 ${
                     isActive(link.href)
                       ? 'text-[#C9A227]'
                       : 'text-[#FAF6ED]/85 hover:text-[#C9A227] hover:bg-[#FAF6ED]/5'
@@ -130,8 +130,8 @@ export default function Navbar({ onBookCatering }) {
                 whileTap={{ scale: 0.97 }}
                 className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-[#FAF6ED] text-xs sm:text-sm font-semibold rounded-xl shadow-md border border-[#C9A227]/30 transition-all"
               >
-                <BookOpen size={13} className="text-[#C9A227]" />
-                Book Catering
+<Calendar size={13} className="text-[#C9A227]" />
+                  Book Catering
               </motion.button>
 
               {/* Mobile hamburger */}

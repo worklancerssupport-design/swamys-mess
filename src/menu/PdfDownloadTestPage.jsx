@@ -5,7 +5,7 @@ import { downloadPdfFromHtml } from '../utils/pdf/downloadPdfFromHtml';
 
 const mockPdfData = {
   fullName: 'Test Customer',
-  phone: '9876543210',
+  phone: '9360671134',
   email: 'test.customer@example.com',
   functionType: 'Marriage Orders',
   guestCount: '250',

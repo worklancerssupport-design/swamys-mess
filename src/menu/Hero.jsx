@@ -42,7 +42,7 @@ const slides = [
 
 const INTERVAL = 4000;
 
-export default function Hero({ onBookCatering }) {
+export default function Hero({ onBookCatering, cats }) {
   const [current, setCurrent]   = useState(0);
   const [paused, setPaused]     = useState(false);
   const [bookOpen, setBookOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function Hero({ onBookCatering }) {
                   <img
                     src={slide.url}
                     alt={slide.label}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover scale-110 blur-[2px]"
                     loading={idx === 0 ? 'eager' : 'lazy'}
                   />
                 </motion.div>
@@ -92,13 +92,16 @@ export default function Hero({ onBookCatering }) {
             )}
           </AnimatePresence>
 
+          {/* Glass backdrop card wrapping the carousel — exact full coverage */}
+          <div className="absolute inset-0 bg-black/25 backdrop-blur-[2px] z-[1]" />
+
           {/* Luxury Burgundy gradients & soft warm golden glow */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#4A0612]/92 via-black/55 to-[#1E0207]/95 z-10" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#4A0612]/35 via-transparent to-[#1E0207]/30 z-10" />
-          
+
           {/* Centered gold spotlight glow behind text container */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#C9A227]/7 rounded-full blur-3xl pointer-events-none z-10" />
-          
+
           {/* Centered gopuram silhouette in background */}
           <GopuramSilhouette className="absolute bottom-10 left-1/2 -translate-x-1/2 pointer-events-none z-10" size={320} opacity={0.06} />
 
@@ -137,7 +140,7 @@ export default function Hero({ onBookCatering }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6D071A]/40 border border-[#C9A227]/30 backdrop-blur-sm mb-6"
+            className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6D071A]/60 border border-[#C9A227]/40 backdrop-blur-md mb-6 shadow-lg"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227] animate-pulse" />
             <span className="text-[#FAF6ED] text-xs font-semibold tracking-widest uppercase">
@@ -150,10 +153,12 @@ export default function Hero({ onBookCatering }) {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="relative z-10 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-[#FAF6ED] mb-6 leading-tight font-display"
+            className="relative z-10 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight font-display"
           >
-            Swamy's{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF6ED] via-[#C9A227] to-[#B8922E]">
+            <span className="text-[#FAF6ED] drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+              Swamy's
+            </span>{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FAF6ED] via-[#F5E9C8] to-[#E8D9B0] drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
               Mess & Catering
             </span>
           </motion.h1>
@@ -162,7 +167,7 @@ export default function Hero({ onBookCatering }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
-            className="relative z-10 text-lg sm:text-xl lg:text-2xl text-[#FAF6ED]/85 font-light mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="relative z-10 text-lg sm:text-xl lg:text-2xl text-[#FAF6ED]/95 font-light mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]"
           >
             Authentic South Indian Food • Daily Meals • Complete Catering Solutions
           </motion.p>
@@ -201,20 +206,20 @@ export default function Hero({ onBookCatering }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="relative z-10 mt-16 flex flex-wrap justify-center gap-6 sm:gap-10"
+            className="relative z-10 mt-16 flex flex-wrap justify-center gap-3 sm:gap-4 px-6 py-4 rounded-2xl bg-black/30 backdrop-blur-md border border-white/[0.08] shadow-xl"
           >
             {[
               { icon: Star, value: '4.9★', label: 'Verified Rating' },
               { icon: Clock, value: '18+ Years', label: 'Serving Tradition' },
               { icon: Award, value: '1000+', label: 'Events Catered' },
             ].map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-3 text-[#FAF6ED]/80">
-                <div className="w-10 h-10 rounded-xl bg-[#6D071A]/40 border border-[#C9A227]/25 flex items-center justify-center shadow-inner">
+              <div key={label} className="flex items-center gap-3 text-[#FAF6ED]/80 px-2">
+                <div className="w-10 h-10 rounded-xl bg-[#6D071A]/60 border border-[#C9A227]/35 flex items-center justify-center shadow-inner">
                   <Icon size={16} className="text-[#C9A227]" />
                 </div>
                 <div className="text-left leading-tight">
-                  <p className="font-bold text-[#FAF6ED] text-sm">{value}</p>
-                  <p className="text-[#FAF6ED]/60 text-[11px] mt-0.5">{label}</p>
+                  <p className="font-bold text-[#FAF6ED] text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{value}</p>
+                  <p className="text-[#FAF6ED]/70 text-[11px] mt-0.5">{label}</p>
                 </div>
               </div>
             ))}
@@ -255,7 +260,7 @@ export default function Hero({ onBookCatering }) {
       </section>
 
       {/* Virtual Menu Book modal */}
-      <MenuBook isOpen={bookOpen} onClose={() => setBookOpen(false)} />
+      <MenuBook isOpen={bookOpen} onClose={() => setBookOpen(false)} cats={cats} />
     </>
   );
 }

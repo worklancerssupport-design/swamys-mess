@@ -4,28 +4,44 @@
 // ============================================
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Sparkles, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Sparkles, CheckCircle2, ChevronRight, Sunrise, Utensils, Sun, Moon } from 'lucide-react';
 import Hero from './Hero';
 import MenuSection from './MenuSection';
-import { breakfastItems, dosaItems, lunchItems, dinnerItems, foodImages } from '../data/menuData';
 import { KolamPattern, AuspiciousDivider, KuthuvilakkuLamp, BrassDiya, TempleBorderGold, VinayagarWatermark, FourDeitiesCorners } from '../navbar/Decorations';
 
-export default function MenuPage({ onBookCatering }) {
-  const [activeTab, setActiveTab] = useState('Breakfast');
+const categoryIcons = {
+  Breakfast: Sunrise,
+  'Dosa Varieties': Utensils,
+  Lunch: Sun,
+  Dinner: Moon,
+};
 
-  const tabs = [
-    { id: 'Breakfast', label: 'Breakfast', icon: '🌅', items: breakfastItems, imageSrc: foodImages.breakfast },
-    { id: 'Dosa Varieties', label: 'Dosa Varieties', icon: '🥞', items: dosaItems, imageSrc: foodImages.dosa },
-    { id: 'Lunch', label: 'Lunch', icon: '☀️', items: lunchItems, imageSrc: foodImages.lunch },
-    { id: 'Dinner', label: 'Dinner', icon: '🌙', items: dinnerItems, imageSrc: foodImages.dinner },
-  ];
+const categoryImages = {
+  Breakfast: 'https://images.unsplash.com/photo-1630383249896-424e482df921?w=1200&q=80',
+  'Dosa Varieties': 'https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=1200&q=80',
+  Lunch: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=1200&q=80',
+  Dinner: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=1200&q=80',
+};
+
+export default function MenuPage({ cats, onBookCatering }) {
+  const [activeTab, setActiveTab] = useState(cats[0]?.name || 'Breakfast');
+
+  const tabs = cats.map(c => ({
+    id: c.name,
+    label: c.name,
+    Icon: categoryIcons[c.name] || Utensils,
+    items: c.items,
+    imageSrc: categoryImages[c.name],
+  }));
 
   const activeTabData = tabs.find(t => t.id === activeTab) || tabs[0];
+
+  if (!tabs.length) return null;
 
   return (
     <div>
       {/* Full-screen hero with carousel */}
-      <Hero onBookCatering={onBookCatering} />
+      <Hero onBookCatering={onBookCatering} cats={cats} />
 
       {/* ── Monthly Food Subscription Section ── */}
       <section className="bg-[#4A0612] py-20 border-b border-[#C9A227]/25 relative overflow-hidden">
@@ -179,7 +195,7 @@ export default function MenuPage({ onBookCatering }) {
                       : 'bg-[#FFF8E7] text-[#6D071A]/85 hover:text-[#B8922E] border-[#6D071A]/10 hover:border-[#B8922E]/35'
                   }`}
                 >
-                  <span className="text-base">{tab.icon}</span>
+                  <tab.Icon size={16} strokeWidth={2.5} />
                   {tab.label}
                 </button>
               );
@@ -198,7 +214,6 @@ export default function MenuPage({ onBookCatering }) {
             >
               <MenuSection
                 category={activeTabData.id}
-                icon={activeTabData.icon}
                 items={activeTabData.items}
                 imageSrc={activeTabData.imageSrc}
               />

@@ -4,6 +4,7 @@ export interface Item {
   item: string;
   price: string;
   image_url: string;
+  description: string;
 }
 
 export const uid = () =>

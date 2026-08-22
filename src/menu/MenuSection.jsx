@@ -37,7 +37,7 @@ const categoryMeta = {
   },
 };
 
-export default function MenuSection({ category, icon, items, imageSrc }) {
+export default function MenuSection({ category, items, imageSrc }) {
   const [showAll, setShowAll] = useState(false);
   const meta    = categoryMeta[category] || categoryMeta.Breakfast;
   const INITIAL = 8;
@@ -70,13 +70,8 @@ export default function MenuSection({ category, icon, items, imageSrc }) {
         <div className="relative z-10 p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5">
 
-            {/* Left — icon + title block */}
-            <div className="flex items-center gap-4 sm:gap-5">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-[#8B1025] to-[#6D071A] flex items-center justify-center shadow-xl flex-shrink-0 text-3xl sm:text-4xl border border-[#C9A227]/30">
-                {icon}
-              </div>
-
-              <div>
+            {/* Left — title block */}
+            <div>
                 {/* Time chip */}
                 <div className="inline-flex items-center gap-1.5 bg-[#C9A227]/10 border border-[#C9A227]/25 text-[#C9A227] rounded-full px-2.5 py-0.5 mb-1.5">
                   <Clock size={10} />
@@ -89,7 +84,6 @@ export default function MenuSection({ category, icon, items, imageSrc }) {
                 </h2>
                 <p className="text-sm text-[#FAF6ED]/70 italic font-light">{meta.tagline}</p>
               </div>
-            </div>
 
             {/* Right — thumbnail + item count */}
             <div className="flex items-center gap-4 sm:flex-col sm:items-end">

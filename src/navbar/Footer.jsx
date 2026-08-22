@@ -46,11 +46,11 @@ const SocialIcons = {
 };
 
 const socialLinks = [
-  { key: 'Instagram', label: 'Instagram', href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
-  { key: 'Facebook',  label: 'Facebook',  href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
-  { key: 'Twitter',   label: 'Twitter/X', href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
+  // { key: 'Instagram', label: 'Instagram', href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
+  // { key: 'Facebook',  label: 'Facebook',  href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
+  // { key: 'Twitter',   label: 'Twitter/X', href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
   { key: 'Youtube',   label: 'YouTube',   href: '#',                         hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
-  { key: 'Whatsapp',  label: 'WhatsApp',  href: 'https://wa.me/919876543210', hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
+  { key: 'Whatsapp',  label: 'WhatsApp',  href: 'https://wa.me/9360671134', hoverClass: 'hover:bg-[#C9A227]/20 hover:text-[#C9A227] hover:border-[#C9A227]/30' },
 ];
 
 export default function Footer() {
@@ -173,8 +173,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-sm text-[#FAF6ED]/60">
                 <Phone size={14} className="text-[#C9A227] flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-[#C9A227] transition-colors">
-                  +91 98765 43210
+                <a href="tel:+919360671134" className="hover:text-[#C9A227] transition-colors">
+                  +91 93606 71134
                 </a>
               </li>
               <li className="flex items-center gap-2.5 text-sm text-[#FAF6ED]/60">

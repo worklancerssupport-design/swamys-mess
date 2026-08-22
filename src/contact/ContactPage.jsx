@@ -25,8 +25,8 @@ const contactCards = [
   {
     icon: Phone,
     title: 'Call Us',
-    lines: ['+91 98765 43210', '+91 94456 78901'],
-    action: 'tel:+919876543210',
+    lines: ['+91 93606 71134', '+91 74483 62352'],
+    action: 'tel:+919360671134',
     actionLabel: 'Call Now',
     gradient: 'from-[#8B1025] to-[#6D071A]',
     bg: 'bg-white',
@@ -35,8 +35,8 @@ const contactCards = [
   {
     icon: MessageCircle,
     title: 'WhatsApp',
-    lines: ['+91 98765 43210', '8 AM – 9 PM'],
-    action: 'https://wa.me/919876543210',
+    lines: ['+91 93606 71134', '8 AM – 9 PM'],
+    action: 'https://wa.me/919360671134',
     actionLabel: 'Chat Now',
     gradient: 'from-[#C9A227] to-[#B8922E]',
     bg: 'bg-white',

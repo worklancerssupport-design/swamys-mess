@@ -1,13 +1,12 @@
 // ============================================
 // Catering Page — Hero + Occasions Grid + Why Choose Us
-// Premium Luxury Overhaul with Traditional South Indian Ornaments, Deity Watermarks & Diyas
 // ============================================
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
-  Sparkles, Heart, Flame, Cake, HeartHandshake, Gift, Star, Award,
-  Compass, Home, Shield, Smile, Baby, Sun, CheckCircle2, Phone, Utensils
+  CheckCircle2, Phone, Star
 } from 'lucide-react';
-import { BangleValagapu, GopuramSilhouette, KalashAuspicious, SacredFireHomam, KuthuvilakkuLamp, AuspiciousDivider, BrassDiya, TempleBorderLine, MuruganWatermark } from '../navbar/Decorations';
+import { TempleBorderLine, KuthuvilakkuLamp, MuruganWatermark, BrassDiya, AuspiciousDivider } from '../navbar/Decorations';
 
 /* Animated section divider */
 function Divider() {
@@ -21,84 +20,6 @@ function Divider() {
     />
   );
 }
-
-const occasions = [
-  {
-    name: 'Valagapu',
-    icon: (props) => <BangleValagapu className="w-6 h-6" color="#B8922E" />,
-    desc: 'Traditional South Indian baby shower celebrating motherhood with rich, auspicious meals.',
-  },
-  {
-    name: 'Temple Functions',
-    icon: (props) => <GopuramSilhouette className="w-6 h-6" size={24} opacity={1} />,
-    desc: 'Sacred community feasts, prasadam, and traditional thali lunches prepared with ultimate purity.',
-  },
-  {
-    name: 'Birthday Parties',
-    icon: Cake,
-    desc: 'Fun, delicious, and customized menus featuring favorites for guests of all ages.',
-  },
-  {
-    name: 'Marriage Orders',
-    icon: HeartHandshake,
-    desc: 'Grand wedding feasts, multi-course traditional leaf service, and premium hospitality.',
-  },
-  {
-    name: 'Seemantham',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Traditional family rituals and prayer ceremonies accompanied by authentic, homestyle recipes.',
-  },
-  {
-    name: 'Reception',
-    icon: Gift,
-    desc: 'Modern wedding reception spreads, live food counters, mocktails, and premium desserts.',
-  },
-  {
-    name: 'Engagement',
-    icon: Star,
-    desc: 'Celebrate your union with customized starters and signature main courses.',
-  },
-  {
-    name: 'Nichayathartham',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Auspicious formal engagement feasts cooked under strict hygiene and quality standards.',
-  },
-  {
-    name: 'Sadabhishekam / Poorthi Vizha',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Honoring long life and golden couples with comforting traditional menus.',
-  },
-  {
-    name: 'Ayush Homam / Namakaranam',
-    icon: (props) => <SacredFireHomam className="w-6 h-6" color="#B8922E" />,
-    desc: 'Naming and birthday blessing ceremonies with light, nutritious menu selections.',
-  },
-  {
-    name: 'Pooja & Gruhapravesam',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Traditional housewarming feasts to bring prosperity and delight your guests.',
-  },
-  {
-    name: 'Jatakarma & Namakarana',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Naming ceremony of your newborn, featuring custom traditional breakfast and lunch menus.',
-  },
-  {
-    name: 'Shashtiapthapoorthi',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Auspicious 60th birthday celebrations catered with classic heritage dishes.',
-  },
-  {
-    name: 'Bheema Ratha Shanthi',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Special 70th birthday milestone catered with pure homestyle South Indian delicacies.',
-  },
-  {
-    name: 'Sadhabhishekam',
-    icon: (props) => <KalashAuspicious className="w-6 h-6" color="#B8922E" />,
-    desc: 'Grand 80th birthday milestones celebrated with multi-generational menus and warm service.',
-  },
-];
 
 const whyChooseUs = [
   {
@@ -119,7 +40,8 @@ const whyChooseUs = [
   },
 ];
 
-export default function CateringPage({ onBookCatering }) {
+export default function CateringPage({ items, onBookCatering }) {
+  if (!items?.length) return null;
   return (
     <section id="catering" className="bg-[#4A0612] overflow-hidden">
 
@@ -137,7 +59,7 @@ export default function CateringPage({ onBookCatering }) {
         </div>
 
         {/* Floating stats strip */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/45 backdrop-blur-md border-t border-white/10">
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/5 backdrop-blur-md border-t border-white/5">
           <div className="max-w-4xl mx-auto px-4 py-5 flex flex-wrap justify-center gap-6 sm:gap-12">
             {[
               { value: '1000+', label: 'Events Served' },
@@ -286,32 +208,36 @@ export default function CateringPage({ onBookCatering }) {
 
           {/* Occasions Grid */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
-            {occasions.map((occasion, idx) => {
-              const Icon = occasion.icon;
-              return (
-                <motion.div
-                  key={occasion.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.04 }}
-                  whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                  className="bg-[#FAF6ED] p-6 rounded-2xl border border-[#B8922E]/25 shadow-md hover:shadow-xl hover:border-[#C9A227] transition-all duration-300 flex items-start gap-4"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-[#FFF8E7] text-[#B8922E] border border-[#C9A227]/25 flex items-center justify-center flex-shrink-0">
-                    <Icon size={24} className="text-[#B8922E]" />
+            {items.map((item, idx) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                className="bg-[#FAF6ED] rounded-2xl border border-[#B8922E]/25 shadow-md hover:shadow-xl hover:border-[#C9A227] transition-all duration-300 overflow-hidden relative z-10"
+              >
+                {item.image_url && (
+                  <div className="h-40 overflow-hidden bg-[#4A0612]">
+                    <img
+                      src={item.image_url}
+                      alt={item.item}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
                   </div>
-                  <div>
-                    <h4 className="font-extrabold text-[#6D071A] text-base mb-1.5 font-display">
-                      {occasion.name}
-                    </h4>
-                    <p className="text-[#6D071A]/70 text-xs sm:text-sm leading-relaxed font-light">
-                      {occasion.desc}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
+                )}
+                <div className="p-6">
+                  <h4 className="font-extrabold text-[#6D071A] text-base mb-1.5 font-display">
+                    {item.item}
+                  </h4>
+                  <p className="text-[#6D071A]/70 text-xs sm:text-sm leading-relaxed font-light">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* All prices negotiable banner */}

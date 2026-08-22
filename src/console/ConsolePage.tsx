@@ -2,8 +2,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Reorder } from "motion/react";
 import Login from "./Login";
 import ItemCard from "./ItemCard";
-import type { Item } from "./types";
-import { uid } from "./types";
+import type { Item } from "../types";
+import { uid } from "../types";
 
 const ENV = import.meta.env;
 const HEADERS = {
@@ -44,7 +44,7 @@ export default function ConsolePage() {
   const [navOpen, setNavOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
 
-  const sideNames = useMemo(() => cats.map((c) => c.name), [cats]);
+  const sideReorderNames = useMemo(() => cats.filter((c) => c.name !== "Catering").map((c) => c.name), [cats]);
 
   useEffect(() => {
     const el = mainRef.current;
@@ -106,7 +106,9 @@ export default function ConsolePage() {
   function reorderCats(next: string[]) {
     setCats((p) => {
       const m = new Map(p.map((c) => [c.name, c]));
-      return next.map((n) => m.get(n)!);
+      const reordered = next.map((n) => m.get(n)!);
+      const catering = p.find((c) => c.name === "Catering");
+      return catering ? [...reordered, catering] : reordered;
     });
   }
 
@@ -143,7 +145,7 @@ export default function ConsolePage() {
   }
 
   function addItem(name: string) {
-    const it: Item = { id: uid(), category: name, item: "New item", price: "0", image_url: "" };
+    const it: Item = { id: uid(), category: name, item: "New item", price: "0", image_url: "", description: "" };
     setCats((p) => p.map((c) => (c.name === name ? { ...c, items: [...c.items, it] } : c)));
   }
 
@@ -151,7 +153,7 @@ export default function ConsolePage() {
     const name = prompt("New category name:");
     if (!name) return;
     const v = name.trim();
-    setCats((p) => [...p, { name: v, items: [{ id: uid(), category: v, item: "New item", price: "0", image_url: "" }] }]);
+    setCats((p) => [...p, { name: v, items: [{ id: uid(), category: v, item: "New item", price: "0", image_url: "", description: "" }] }]);
   }
 
   if (!authed) return <Login onAuthed={handleAuthed} />;
@@ -223,20 +225,33 @@ export default function ConsolePage() {
           {cats.length === 0 ? (
             <div className="side-empty">No categories yet</div>
           ) : (
-            <Reorder.Group axis="y" values={sideNames} onReorder={reorderCats} className="side-list">
-              {cats.map((c) => (
-                <Reorder.Item
+            <>
+              <Reorder.Group axis="y" values={sideReorderNames} onReorder={reorderCats} className="side-list">
+                {cats.filter((c) => c.name !== "Catering").map((c) => (
+                  <Reorder.Item
+                    key={c.name}
+                    value={c.name}
+                    onClick={() => jumpTo(c.name)}
+                    whileDrag={{ scale: 1.03, boxShadow: "0 8px 20px rgba(15,23,42,0.18)" }}
+                    className={`side-row${active === c.name ? " active" : ""}`}
+                  >
+                    <span className="side-name">{c.name}</span>
+                    <span className="side-count">{c.items.length}</span>
+                  </Reorder.Item>
+                ))}
+              </Reorder.Group>
+              {cats.filter((c) => c.name === "Catering").map((c) => (
+                <div
                   key={c.name}
-                  value={c.name}
                   onClick={() => jumpTo(c.name)}
-                  whileDrag={{ scale: 1.03, boxShadow: "0 8px 20px rgba(15,23,42,0.18)" }}
                   className={`side-row${active === c.name ? " active" : ""}`}
+                  style={{ marginTop: 2, cursor: "pointer" }}
                 >
                   <span className="side-name">{c.name}</span>
                   <span className="side-count">{c.items.length}</span>
-                </Reorder.Item>
+                </div>
               ))}
-            </Reorder.Group>
+            </>
           )}
           <button onClick={addCategory} className="side-add">+ Add category</button>
         </aside>
@@ -249,14 +264,16 @@ export default function ConsolePage() {
                 <section key={c.name} data-section={c.name} id={`sec-${CSS.escape(c.name)}`} className="section">
                   <div className="section-head">
                     <h2 className="h2">{c.name}<span className="count">{c.items.length}</span></h2>
-                    <div className="row">
-                      <button className="icon-btn" onClick={() => renameCategory(c.name)} aria-label="Rename">✎</button>
-                      <button className="icon-btn danger" onClick={() => removeCategory(c.name)} aria-label="Delete">×</button>
-                    </div>
+                    {c.name !== "Catering" && (
+                      <div className="row">
+                        <button className="icon-btn" onClick={() => renameCategory(c.name)} aria-label="Rename">✎</button>
+                        <button className="icon-btn danger" onClick={() => removeCategory(c.name)} aria-label="Delete">×</button>
+                      </div>
+                    )}
                   </div>
                   <Reorder.Group axis="xy" values={c.items} onReorder={(next) => setCategoryItems(c.name, next)} className="grid">
                     {c.items.map((it) => (
-                      <ItemCard key={it.id} item={it} onUpdate={updateItem} onDelete={removeItem} />
+                      <ItemCard key={it.id} item={it} onUpdate={updateItem} onDelete={removeItem} showDescription={c.name === "Catering"} />
                     ))}
                     <button onClick={() => addItem(c.name)} className="add-item">+ Add item</button>
                   </Reorder.Group>

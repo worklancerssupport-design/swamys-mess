@@ -4,48 +4,48 @@
 // ============================================
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ChevronLeft, ChevronRight, UtensilsCrossed, IndianRupee, Star, Award } from 'lucide-react';
-import { breakfastItems, dosaItems, lunchItems, dinnerItems } from '../data/menuData';
+import { X, ChevronLeft, ChevronRight, UtensilsCrossed, IndianRupee, Star, Award, Sunrise, Utensils, Sun, Moon } from 'lucide-react';
 import { GopuramSilhouette, KolamPattern, AuspiciousDivider, BrassDiya, AuspiciousCorner, TempleBorderGold, FourDeitiesCorners } from '../navbar/Decorations';
 
-/* ── tag styles ── */
-const tagPalette = {
-  Popular:       { bg: 'bg-[#B8922E]',  text: 'text-[#FAF6ED]' },
-  Bestseller:    { bg: 'bg-[#B8922E]',  text: 'text-[#FAF6ED]' },
-  Premium:       { bg: 'bg-[#C9A227]',   text: 'text-[#6D071A]' },
-  'Must Try':    { bg: 'bg-[#8B1025]',     text: 'text-[#FAF6ED]' },
-  Sweet:         { bg: 'bg-pink-850/80',    text: 'text-[#FAF6ED]' },
-  'Full Meal':   { bg: 'bg-emerald-850/80', text: 'text-[#FAF6ED]' },
-  Value:         { bg: 'bg-teal-850/80',    text: 'text-[#FAF6ED]' },
-  Combo:         { bg: 'bg-violet-850/80',  text: 'text-[#FAF6ED]' },
-  'Chef Special':{ bg: 'bg-[#8B1025]',    text: 'text-[#FAF6ED]' },
+const categoryIcons = {
+  Breakfast: Sunrise,
+  'Dosa Varieties': Utensils,
+  Lunch: Sun,
+  Dinner: Moon,
+};
+
+const categoryTimes = {
+  Breakfast: '6 AM – 11 AM',
+  'Dosa Varieties': '6 AM – 11 AM & 6 PM – 10 PM',
+  Lunch: '11 AM – 4 PM',
+  Dinner: '6 PM – 10 PM',
+};
+
+const categoryTaglines = {
+  Breakfast: 'Start your day the South Indian way',
+  'Dosa Varieties': 'Crispy, hot, and traditional South Indian crepes',
+  Lunch: 'Wholesome meals, always made fresh',
+  Dinner: 'Evening comfort food done right',
 };
 
 /* ── page definitions ── */
-const pages = [
-  { id: 'cover', type: 'cover' },
-  {
-    id: 'breakfast', type: 'menu', category: 'Breakfast', icon: '🌅',
-    time: '6 AM – 11 AM', tagline: 'Start your day the South Indian way',
-    items: breakfastItems, pageNum: 1,
-  },
-  {
-    id: 'dosa', type: 'menu', category: 'Dosa Varieties', icon: '🥞',
-    time: '6 AM – 11 AM & 6 PM – 10 PM', tagline: 'Crispy, hot, and traditional South Indian crepes',
-    items: dosaItems, pageNum: 2,
-  },
-  {
-    id: 'lunch', type: 'menu', category: 'Lunch', icon: '☀️',
-    time: '11 AM – 4 PM', tagline: 'Wholesome meals, always made fresh',
-    items: lunchItems, pageNum: 3,
-  },
-  {
-    id: 'dinner', type: 'menu', category: 'Dinner', icon: '🌙',
-    time: '6 PM – 10 PM', tagline: 'Evening comfort food done right',
-    items: dinnerItems, pageNum: 4,
-  },
-  { id: 'closing', type: 'closing' },
-];
+function buildPages(cats) {
+  const menuPages = cats.map((c, i) => ({
+    id: c.name.toLowerCase().replace(/\s+/g, '-'),
+    type: 'menu',
+    category: c.name,
+    icon: categoryIcons[c.name] || Utensils,
+    time: categoryTimes[c.name] || '',
+    tagline: categoryTaglines[c.name] || '',
+    items: c.items,
+    pageNum: i + 1,
+  }));
+  return [
+    { id: 'cover', type: 'cover' },
+    ...menuPages,
+    { id: 'closing', type: 'closing' },
+  ];
+}
 
 /* ── flip animation ── */
 const flipVariants = {
@@ -89,9 +89,6 @@ function GoldDivider({ className = '' }) {
 /* ── Redesigned Spacious Food Item Card ── */
 function BookMenuItem({ item, index }) {
   const [imgErr, setImgErr] = useState(false);
-  const isChef = item.tag === 'Premium' || item.tag === 'Chef Special';
-  const isPopular = item.tag === 'Popular' || item.tag === 'Bestseller' || item.tag === 'Must Try';
-  const tagInfo   = item.tag ? tagPalette[item.tag] : null;
 
   return (
     <motion.div
@@ -102,10 +99,10 @@ function BookMenuItem({ item, index }) {
     >
       {/* Food Image */}
       <div className="relative h-32 sm:h-36 overflow-hidden bg-[#4A0612] flex-shrink-0">
-        {!imgErr ? (
+        {!imgErr && item.image_url ? (
           <img
-            src={item.photo}
-            alt={item.name}
+            src={item.image_url}
+            alt={item.item}
             onError={() => setImgErr(true)}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             loading="lazy"
@@ -115,30 +112,13 @@ function BookMenuItem({ item, index }) {
         )}
         {/* Soft overlay */}
         <div className="absolute inset-0 bg-black/10" />
-
-        {/* Ribbons / Badges */}
-        {isChef && (
-          <span className="absolute top-2 right-2 z-10 inline-flex items-center gap-0.5 bg-[#8B1025] text-[#FAF6ED] text-[8px] font-bold px-2 py-0.5 rounded-full shadow-md border border-[#C9A227]/20">
-            <Award size={8} className="text-[#C9A227]" />Chef Special
-          </span>
-        )}
-        {isPopular && !isChef && (
-          <span className="absolute top-2 right-2 z-10 inline-flex items-center gap-0.5 bg-[#B8922E] text-[#FAF6ED] text-[8px] font-bold px-2 py-0.5 rounded-full shadow-md">
-            <Star size={8} className="fill-[#FAF6ED] text-[#FAF6ED]" />Popular
-          </span>
-        )}
-        {tagInfo && !isChef && !isPopular && (
-          <span className={`absolute top-2 right-2 z-10 ${tagInfo.bg} ${tagInfo.text} text-[8px] font-bold px-2 py-0.5 rounded-full shadow-md`}>
-            {item.tag}
-          </span>
-        )}
       </div>
 
       {/* Item info block */}
       <div className="p-4 flex flex-col justify-between flex-1 min-h-[90px] border-t border-[#B8922E]/10 bg-white">
         <div className="flex items-start justify-between gap-3 mb-1.5">
           <span className="font-extrabold text-[#6D071A] text-[13.5px] sm:text-[14.5px] leading-snug font-display">
-            {item.name}
+            {item.item}
           </span>
           <span className="font-black text-sm sm:text-base text-[#B8922E] flex items-center flex-shrink-0">
             <IndianRupee size={12} className="stroke-[2.5]" />
@@ -341,9 +321,10 @@ function MenuPageContent({ page }) {
 }
 
 /* ── Main MenuBook Modal ── */
-export default function MenuBook({ isOpen, onClose }) {
+export default function MenuBook({ isOpen, onClose, cats }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction,   setDirection]   = useState(1);
+  const pages = buildPages(cats || []);
 
   const goNext = useCallback(() => {
     if (currentPage < pages.length - 1) { setDirection(1); setCurrentPage(p => p + 1); }
