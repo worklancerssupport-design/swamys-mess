@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Reorder } from "motion/react";
-import { useImageUpload } from "../ImageWidget";
+import { useImageUpload } from "./ImageWidget";
 import type { Item } from "./types";
 
 export default function ItemCard({
