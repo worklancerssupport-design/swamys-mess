@@ -1,5 +1,5 @@
 import { Routes, Route, Link } from "react-router-dom";
-import Console from "./Console";
+import ConsolePage from "./console/ConsolePage";
 
 function Home() {
   return (
@@ -15,7 +15,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/console" element={<Console />} />
+      <Route path="/console" element={<ConsolePage />} />
     </Routes>
   );
 }
