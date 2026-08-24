@@ -371,7 +371,7 @@ function MealOptions({ cats }) {
               <div className="bg-[#FFF8E7] rounded-2xl p-5 border border-[#C9A227]/35 mb-5">
                 <p className="text-[10px] uppercase tracking-widest text-[#B8922E] font-bold">Unbeatable everyday value</p>
                 <p className="text-4xl font-black text-[#6D071A] mt-1.5 font-display leading-none">
-                  ₹3,999
+                  ₹4,999
                   <span className="text-sm font-normal text-[#6D071A]/60"> / month</span>
                 </p>
                 <p className="text-xs text-[#B8922E] font-semibold tracking-wider uppercase mt-2">3 home-cooked meals · every day</p>
