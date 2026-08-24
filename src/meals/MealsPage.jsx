@@ -5,6 +5,7 @@
 // ============================================
 import { useEffect, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import {
   Phone, MessageCircle, ArrowRight, Clock, MapPin, CheckCircle2,
   Sparkles, UtensilsCrossed, Calendar, Users, GraduationCap,
@@ -18,7 +19,6 @@ import {
 } from '../navbar/Decorations';
 import Navbar from '../navbar/Navbar';
 import Footer from '../navbar/Footer';
-import MenuBook from '../menu/MenuBook';
 import localData from '../data.json';
 
 const ENV = import.meta.env;
@@ -76,6 +76,7 @@ function pickFeaturedItems(cats) {
 /* ───────────────────────── 1. HERO ───────────────────────── */
 
 function Hero({ cats }) {
+  const navigate = useNavigate();
   return (
     <header className="relative min-h-[88vh] sm:min-h-[92vh] flex items-center justify-center overflow-hidden border-b border-[#C9A227]/25">
       {/* Background image */}
@@ -150,7 +151,7 @@ function Hero({ cats }) {
             <ArrowRight size={16} />
           </a>
           <button
-            onClick={() => setBookOpen(true)}
+            onClick={() => navigate('/menu')}
             className="inline-flex items-center gap-2.5 px-7 sm:px-9 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 transition-all text-sm sm:text-base"
           >
             <UtensilsCrossed size={17} className="text-[#C9A227]" />
@@ -543,6 +544,7 @@ function WhatYouGet({ cats }) {
 /* ───────────────────────── 5. MENU PREVIEW ───────────────────────── */
 
 function MenuPreview({ cats }) {
+  const navigate = useNavigate();
   const featured = pickFeaturedItems(cats);
 
   return (
@@ -596,12 +598,66 @@ function MenuPreview({ cats }) {
         </motion.div>
 
         <div className="text-center">
-          <button onClick={() => setBookOpen(true)}
+          <button onClick={() => navigate('/menu')}
             className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all text-sm sm:text-base border border-[#C9A227]/30">
             View Full Menu
             <ArrowRight size={16} />
           </button>
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ───────────────────────── 5b. CATERING CONNECTION CTA ───────────────────────── */
+
+function CateringConnection() {
+  const navigate = useNavigate();
+  return (
+    <section className="relative py-16 sm:py-20 overflow-hidden border-b border-[#C9A227]/25">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4A0612] via-[#6D071A] to-[#4A0612]" />
+      <KolamPattern className="absolute inset-0 pointer-events-none" opacity={0.04} />
+      <MuruganWatermark className="absolute -right-20 top-1/2 -translate-y-1/2 pointer-events-none" size={420} opacity={0.04} />
+      <TempleBorderLine className="absolute top-0 left-0 right-0 z-10" opacity={0.3} />
+      <TempleBorderLine className="absolute bottom-0 left-0 right-0 z-10 scale-y-[-1]" opacity={0.3} />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.55 }}
+          className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left"
+        >
+          <div className="flex-1">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C9A227]/15 border border-[#C9A227]/30 text-[#E5C158] text-xs font-bold uppercase tracking-wider mb-4">
+              <ChefHat size={12} /> Functions &amp; Events
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FAF6ED] mb-3 font-display leading-tight">
+              Planning a{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5C158] to-[#C9A227]">
+                function or event?
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-[#FAF6ED]/75 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              From intimate home gatherings of 20 guests to larger ceremonies — we cater for
+              weddings, receptions, poojas, birthdays and temple functions across Velachery.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-3 flex-shrink-0">
+            <button
+              onClick={() => navigate('/catering')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-[#C9A227] to-[#B8922E] text-[#4A0612] font-extrabold rounded-xl shadow-lg shadow-[#C9A227]/25 hover:scale-[1.03] active:scale-[0.98] transition-transform text-sm sm:text-base"
+            >
+              Explore Catering <ArrowRight size={16} />
+            </button>
+            <a
+              href={`tel:${PHONE_PRIMARY}`}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm sm:text-base"
+            >
+              <Phone size={17} /> Call {PHONE_PRIMARY_DISPLAY}
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -901,6 +957,7 @@ function FAQ() {
 /* ───────────────────────── 10. FINAL CTA ───────────────────────── */
 
 function FinalCTA() {
+  const navigate = useNavigate();
   return (
     <section id="order" className="relative py-20 sm:py-24 overflow-hidden border-b border-[#C9A227]/25">
       {/* Background */}
@@ -945,7 +1002,7 @@ function FinalCTA() {
               <Phone size={17} className="text-[#C9A227]" />
               {PHONE_PRIMARY_DISPLAY}
             </a>
-            <button onClick={() => setBookOpen(true)}
+            <button onClick={() => navigate('/menu')}
               className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 transition-all text-sm sm:text-base">
               <UtensilsCrossed size={17} className="text-[#C9A227]" />
               View Menu
@@ -975,7 +1032,6 @@ function FinalCTA() {
 
 export default function MealsPage() {
   const [cats, setCats] = useState(() => groupItemsByCategory(localData));
-  const [bookOpen, setBookOpen] = useState(false);
 
   const loadData = useCallback(async () => {
     try {
@@ -1030,6 +1086,7 @@ export default function MealsPage() {
         <WhoThisIsFor />
         <WhatYouGet cats={cats} />
         <MenuPreview cats={cats} />
+        <CateringConnection />
         <HowItWorks />
         <ServiceArea />
         <Reviews />
@@ -1038,7 +1095,6 @@ export default function MealsPage() {
       </main>
 
       <Footer />
-      <MenuBook isOpen={bookOpen} onClose={() => setBookOpen(false)} cats={cats} />
     </motion.div>
   );
 }

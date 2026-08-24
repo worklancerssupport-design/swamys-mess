@@ -8,9 +8,10 @@ import { Menu, X, UtensilsCrossed, Calendar } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
+  { label: 'Home',     href: '/',         isRoute: true  },
   { label: 'Meals',    href: '/meals',    isRoute: true  },
-  { label: 'Menu',     href: '#menu',     isRoute: false },
-  { label: 'Catering', href: '#catering', isRoute: false },
+  { label: 'Menu',     href: '/menu',     isRoute: true  },
+  { label: 'Catering', href: '/catering', isRoute: true  },
   { label: 'Contact',  href: '#contact',  isRoute: false },
 ];
 
@@ -29,8 +30,8 @@ export default function Navbar({ onBookCatering }) {
       setScrolled(y > 60);
       setScrollProgress(total > 0 ? (y / total) * 100 : 0);
 
-      // Active-section detection
-      const sectionIds = ['contact', 'catering', 'menu'];
+      // Active-section detection (only for anchor links on homepage)
+      const sectionIds = ['contact'];
       for (const id of sectionIds) {
         const el = document.getElementById(id);
         if (el && y >= el.offsetTop - 130) {

@@ -5,6 +5,7 @@
 // ============================================
 import { useEffect, useState, useCallback } from 'react';
 import { motion } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import {
   Phone, MessageCircle, ArrowRight, MapPin, CheckCircle2,
   Sparkles, UtensilsCrossed, Calendar, Users, Star, Quote,
@@ -18,7 +19,6 @@ import {
 } from '../navbar/Decorations';
 import Navbar from '../navbar/Navbar';
 import Footer from '../navbar/Footer';
-import MenuBook from '../menu/MenuBook';
 import localData from '../data.json';
 
 const ENV = import.meta.env;
@@ -45,6 +45,7 @@ const stagger = (delay = 0) => ({
 /* ───────────────────────── 1. HERO ───────────────────────── */
 
 function Hero({ cateringCats }) {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-[92vh] sm:min-h-screen flex items-center justify-center overflow-hidden border-b border-[#C9A227]/25">
       <div className="absolute inset-0 z-0">
@@ -113,8 +114,8 @@ function Hero({ cateringCats }) {
             <ArrowRight size={16} />
           </a>
           <a
-            href="#menu"
-            onClick={(e) => { e.preventDefault(); document.getElementById('catering-menu')?.scrollIntoView({ behavior: 'smooth' }); }}
+            href="/menu"
+            onClick={(e) => { e.preventDefault(); navigate('/menu'); }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm sm:text-base"
           >
             <UtensilsCrossed size={17} className="text-[#C9A227]" />
@@ -296,7 +297,8 @@ function SmallFunction() {
 
 /* ───────────────────────── 4. CATERING OPTIONS / MENU ───────────────────────── */
 
-function CateringMenu({ cats, onOpenMenu }) {
+function CateringMenu({ cats }) {
+  const navigate = useNavigate();
   const cateringItems = cats.find(c => c.name === 'Catering')?.items || [];
 
   return (
@@ -389,7 +391,7 @@ function CateringMenu({ cats, onOpenMenu }) {
           className="mt-10 text-center"
         >
           <button
-            onClick={onOpenMenu}
+            onClick={() => navigate('/menu')}
             className="inline-flex items-center gap-2.5 px-8 py-4 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all text-sm sm:text-base border border-[#C9A227]/30"
           >
             <UtensilsCrossed size={17} className="text-[#C9A227]" />
@@ -403,6 +405,61 @@ function CateringMenu({ cats, onOpenMenu }) {
       </div>
 
       <TempleBorderLine className="absolute bottom-0 left-0 right-0 z-10 scale-y-[-1]" opacity={0.3} />
+    </section>
+  );
+}
+
+/* ───────────────────────── 4b. MEALS CONNECTION CTA ───────────────────────── */
+
+function MealsConnection() {
+  const navigate = useNavigate();
+  return (
+    <section className="relative py-16 sm:py-20 overflow-hidden border-b border-[#C9A227]/25">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#4A0612] via-[#6D071A] to-[#4A0612]" />
+      <KolamPattern className="absolute inset-0 pointer-events-none" opacity={0.04} />
+      <MuruganWatermark className="absolute -right-20 top-1/2 -translate-y-1/2 pointer-events-none" size={420} opacity={0.04} />
+      <TempleBorderLine className="absolute top-0 left-0 right-0 z-10" opacity={0.3} />
+      <TempleBorderLine className="absolute bottom-0 left-0 right-0 z-10 scale-y-[-1]" opacity={0.3} />
+
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.55 }}
+          className="flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left"
+        >
+          <div className="flex-1">
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C9A227]/15 border border-[#C9A227]/30 text-[#E5C158] text-xs font-bold uppercase tracking-wider mb-4">
+              <Calendar size={12} /> Daily &amp; Monthly Meals
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#FAF6ED] mb-3 font-display leading-tight">
+              Looking for everyday{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5C158] to-[#C9A227]">
+                home-style meals?
+              </span>
+            </h2>
+            <p className="text-sm sm:text-base text-[#FAF6ED]/75 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+              We run a daily lunch and monthly tiffin subscription across Velachery and nearby areas —
+              fresh, homestyle, on-time, every day of the week.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-3 flex-shrink-0">
+            <button
+              onClick={() => navigate('/meals')}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-gradient-to-r from-[#C9A227] to-[#B8922E] text-[#4A0612] font-extrabold rounded-xl shadow-lg shadow-[#C9A227]/25 hover:scale-[1.03] active:scale-[0.98] transition-transform text-sm sm:text-base"
+            >
+              View Daily &amp; Monthly Meals <ArrowRight size={16} />
+            </button>
+            <a
+              href={WHATSAPP_HREF}
+              target="_blank" rel="noreferrer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm sm:text-base"
+            >
+              <MessageCircle size={17} /> WhatsApp Us
+            </a>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -976,7 +1033,6 @@ function groupItemsByCategory(items) {
 
 export default function CateringLandingPage() {
   const [cats, setCats] = useState(() => groupItemsByCategory(localData));
-  const [bookOpen, setBookOpen] = useState(false);
 
   const loadData = useCallback(async () => {
     try {
@@ -1028,7 +1084,8 @@ export default function CateringLandingPage() {
       <main>
         <Hero />
         <SmallFunction />
-        <CateringMenu cats={cats} onOpenMenu={() => setBookOpen(true)} />
+        <CateringMenu cats={cats} />
+        <MealsConnection />
         <GuestPlanning />
         <WhySwamys />
         <ServiceArea />
@@ -1039,7 +1096,6 @@ export default function CateringLandingPage() {
       </main>
 
       <Footer />
-      <MenuBook isOpen={bookOpen} onClose={() => setBookOpen(false)} cats={cats} />
     </motion.div>
   );
 }

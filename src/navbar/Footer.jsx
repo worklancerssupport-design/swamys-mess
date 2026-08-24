@@ -7,11 +7,11 @@ import { UtensilsCrossed, Phone, Mail, MapPin, Heart, ArrowUp } from 'lucide-rea
 import { GopuramSilhouette, AuspiciousDivider, BrassDiya, TempleBorderLine, KaruppasamyWatermark } from './Decorations';
 
 const quickLinks = [
-  { label: 'Home',               href: '/'        },
-  { label: 'Daily Meals',        href: '/meals'   },
-  { label: 'Menu',               href: '#menu'    },
-  { label: 'Catering Services',  href: '#catering'},
-  { label: 'Contact Us',         href: '#contact' },
+  { label: 'Home',               href: '/'         },
+  { label: 'Daily Meals',        href: '/meals'    },
+  { label: 'Menu',               href: '/menu'     },
+  { label: 'Catering Services',  href: '/catering' },
+  { label: 'Contact Us',         href: '#contact'  },
 ];
 
 const SocialIcons = {
