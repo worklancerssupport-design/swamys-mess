@@ -43,7 +43,7 @@
     "id": "e0b093f4-7e90-48e0-a7d5-d2279cd8f1c8",
     "category": "Breakfast",
     "item": "Rava Upma",
-    "price": "70",
+    "price": "80",
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Semolina_Upma.jpg",
     "description": ""
   },
@@ -51,7 +51,7 @@
     "id": "a7b749cd-a249-43c3-b4e8-8db99cb9e863",
     "category": "Breakfast",
     "item": "Semiya Upma",
-    "price": "70",
+    "price": "80",
     "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Seviya_Upma.jpg",
     "description": ""
   },
@@ -67,7 +67,7 @@
     "id": "36318350-f8f4-4ea0-bd68-1e4285b14e9e",
     "category": "Breakfast",
     "item": "Idiyappam (3pc)",
-    "price": "70",
+    "price": "80",
     "image_url": "https://res.cloudinary.com/akjmqvws/image/upload/q_auto,f_auto/v1787298022/bysealpekbofoxscbdly.jpg",
     "description": ""
   },
