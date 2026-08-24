@@ -98,7 +98,7 @@ export default function MenuPage({ cats, onBookCatering }) {
                 <div className="bg-[#FFF8E7] border border-[#C9A227]/25 rounded-2xl p-6 text-center shadow-md">
                   <p className="text-[10px] uppercase tracking-widest text-[#B8922E] font-bold">Unbeatable Value</p>
                   <p className="text-4xl font-black text-[#6D071A] mt-1.5 font-display">
-                    ₹3,999
+                    ₹4,999
                     <span className="text-sm font-normal text-[#6D071A]/60"> / Month</span>
                   </p>
                   <p className="text-xs text-[#B8922E] font-semibold tracking-wider uppercase mt-2">3 Meals a Day</p>
