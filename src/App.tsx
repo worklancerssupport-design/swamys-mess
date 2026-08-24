@@ -1,21 +1,28 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Console from "./Console";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import ConsolePage from "./console/ConsolePage";
+import WebsitePage from "./WebsitePage";
+import MealsPage from "./meals/MealsPage";
+import CateringLandingPage from "./catering/CateringLandingPage";
+import MenuRoutePage from "./menu/MenuRoutePage";
 
-function Home() {
-  return (
-    <div style={{ fontFamily: "system-ui", textAlign: "center", marginTop: "4rem" }}>
-      <h1>Swamy's Mess</h1>
-      <p>Mess & Catering Services</p>
-      <Link to="/console" style={{ color: "#4f46e5" }}>Admin Console</Link>
-    </div>
-  );
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
 }
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/console" element={<Console />} />
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<WebsitePage />} />
+        <Route path="/menu" element={<MenuRoutePage />} />
+        <Route path="/meals" element={<MealsPage />} />
+        <Route path="/catering" element={<CateringLandingPage />} />
+        <Route path="/console" element={<ConsolePage />} />
+      </Routes>
+    </>
   );
 }
