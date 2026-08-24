@@ -168,7 +168,7 @@ export default function CateringPage({ items, onBookCatering }) {
         <KuthuvilakkuLamp className="absolute left-4 top-20 pointer-events-none hidden lg:block" height={260} opacity={0.06} />
         <KuthuvilakkuLamp className="absolute right-4 top-20 pointer-events-none hidden lg:block scale-x-[-1]" height={260} opacity={0.06} />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
 
           <div className="text-center mb-12">
             <motion.p

@@ -4,6 +4,7 @@
 // ============================================
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useNavigate } from 'react-router-dom';
 import { Sparkles, CheckCircle2, ChevronRight, Sunrise, Utensils, Sun, Moon } from 'lucide-react';
 import Hero from './Hero';
 import MenuSection from './MenuSection';
@@ -25,6 +26,7 @@ const categoryImages = {
 
 export default function MenuPage({ cats, onBookCatering }) {
   const [activeTab, setActiveTab] = useState(cats[0]?.name || 'Breakfast');
+  const navigate = useNavigate();
 
   const tabs = cats.map(c => ({
     id: c.name,
@@ -117,9 +119,7 @@ export default function MenuPage({ cats, onBookCatering }) {
                   </div>
                   
                   <button 
-                    onClick={() => {
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
+                    onClick={() => navigate('/meals')}
                     className="mt-5 w-full py-3.5 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white hover:opacity-95 active:scale-95 font-bold text-sm rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 border border-[#C9A227]/30"
                   >
                     Enquire About Subscription

@@ -244,7 +244,7 @@
     "category": "Dinner",
     "item": "Corn Paratha",
     "price": "120",
-    "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Roti_Style_Paratha.jpg",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVBl1CU3Ul93OdlkQzwQBFEsiY8aJC92zvnBXdbiPHDQ&s=10",
     "description": ""
   },
   {
@@ -312,17 +312,9 @@
     "description": "Modern wedding reception spreads, live food counters, mocktails, and premium desserts."
   },
   {
-    "id": "ba59f90b-12fe-4056-9894-470382da243c",
-    "category": "Catering",
-    "item": "Engagement",
-    "price": "",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGq17mxbmSkFFW6X6_Z85nHK33oSAKFjcHTktDhP1BPA&s=10",
-    "description": "Celebrate your union with customized starters and signature main courses."
-  },
-  {
     "id": "d1a111ec-54eb-4cc5-9c1d-72483a13a2df",
     "category": "Catering",
-    "item": "Nichayathartham",
+    "item": "Engagement / Nichayathartham",
     "price": "",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGq17mxbmSkFFW6X6_Z85nHK33oSAKFjcHTktDhP1BPA&s=10",
     "description": "Auspicious formal engagement feasts cooked under strict hygiene and quality standards."
@@ -350,14 +342,6 @@
     "price": "",
     "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSyR38CWlck1St-c-zDInaGMGYJZkKCyI0AOgz2Ju0ag&s=10",
     "description": "Traditional housewarming feasts to bring prosperity and delight your guests."
-  },
-  {
-    "id": "e9119f28-77a0-48c4-a7ac-c336c0eb8623",
-    "category": "Catering",
-    "item": "Jatakarma & Namakarana",
-    "price": "",
-    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSogqmuLTe_GSrOXo7L9vZQSnZLVSj3qbwXXsketr9TnA&s=10",
-    "description": "Naming ceremony of your newborn, featuring custom traditional breakfast and lunch menus."
   },
   {
     "id": "206a6073-7c0e-47f1-b6ca-fc5e25063b5f",

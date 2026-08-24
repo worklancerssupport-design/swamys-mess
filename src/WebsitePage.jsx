@@ -39,7 +39,7 @@ function LoadingScreen({ onDone }) {
 
   useEffect(() => {
     const start = Date.now();
-    const duration = 1800;
+    const duration = 540;
     const raf = () => {
       const p = Math.min(((Date.now() - start) / duration) * 100, 100);
       setProgress(p);
@@ -146,7 +146,7 @@ function LoadingScreen({ onDone }) {
 
 /* ── Main App ── */
 export default function App() {
-  const [loading,  setLoading]  = useState(true);
+  const [loading,  setLoading]  = useState(() => !sessionStorage.getItem('sm_loaded'));
   const [cats, setCats] = useState([]);
   const [bookCateringOpen, setBookCateringOpen] = useState(false);
   const pdfTestMode = new URLSearchParams(window.location.search).has('pdf-test');
@@ -166,7 +166,7 @@ export default function App() {
       {pdfTestMode ? (
         <PdfDownloadTestPage />
       ) : loading ? (
-        <LoadingScreen key="loading" onDone={() => setLoading(false)} />
+        <LoadingScreen key="loading" onDone={() => { sessionStorage.setItem('sm_loaded', '1'); setLoading(false); }} />
       ) : (
         <motion.div
           key="main"

@@ -5,11 +5,13 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, UtensilsCrossed, Calendar } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
-  { label: 'Menu',     href: '#menu'     },
-  { label: 'Catering', href: '#catering' },
-  { label: 'Contact',  href: '#contact'  },
+  { label: 'Meals',    href: '/meals',    isRoute: true  },
+  { label: 'Menu',     href: '#menu',     isRoute: false },
+  { label: 'Catering', href: '#catering', isRoute: false },
+  { label: 'Contact',  href: '#contact',  isRoute: false },
 ];
 
 export default function Navbar({ onBookCatering }) {
@@ -17,6 +19,8 @@ export default function Navbar({ onBookCatering }) {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileOpen,     setMobileOpen]     = useState(false);
   const [activeSection,  setActiveSection]  = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +45,19 @@ export default function Navbar({ onBookCatering }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (href) => {
+  const handleNavClick = (link, e) => {
     setMobileOpen(false);
-    const id = href.replace('#', '');
+    if (link.isRoute) {
+      // External route navigation
+      if (location.pathname !== link.href) navigate(link.href);
+      return;
+    }
+    const id = link.href.replace('#', '');
+    if (location.pathname !== '/') {
+      // We're on a different page — go home first, then scroll
+      navigate('/' + link.href);
+      return;
+    }
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
@@ -53,7 +67,10 @@ export default function Navbar({ onBookCatering }) {
     onBookCatering?.();
   };
 
-  const isActive = (href) => activeSection === href.replace('#', '');
+  const isActive = (link) => {
+    if (link.isRoute) return location.pathname === link.href;
+    return activeSection === link.href.replace('#', '');
+  };
 
   return (
     <>
@@ -72,8 +89,8 @@ export default function Navbar({ onBookCatering }) {
 
             {/* ── Logo ── */}
             <motion.a
-              href="#menu"
-              onClick={(e) => { e.preventDefault(); handleNavClick('#menu'); }}
+              href="/"
+              onClick={(e) => { e.preventDefault(); navigate('/'); }}
               className="flex items-center gap-2.5 group flex-shrink-0 drop-shadow-[0_1px_3px_rgba(0,0,0,0.3)]"
               whileHover={{ scale: 1.02 }}
             >
@@ -102,16 +119,16 @@ export default function Navbar({ onBookCatering }) {
                 <a
                   key={link.label}
                   href={link.href}
-                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link, e); }}
                   className={`relative px-5 py-2 rounded-lg text-base font-bold transition-all duration-200 ${
-                    isActive(link.href)
+                    isActive(link)
                       ? 'text-[#C9A227]'
                       : 'text-[#FAF6ED]/85 hover:text-[#C9A227] hover:bg-[#FAF6ED]/5'
                   }`}
                 >
                   {link.label}
                   {/* Active underline dot */}
-                  {isActive(link.href) && (
+                  {isActive(link) && (
                     <motion.span
                       layoutId="nav-dot"
                       className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#C9A227] rounded-full"
@@ -180,15 +197,15 @@ export default function Navbar({ onBookCatering }) {
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.05 }}
-                    onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
+                    onClick={(e) => { e.preventDefault(); handleNavClick(link, e); }}
                     className={`px-4 py-3 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
-                      isActive(link.href)
+                      isActive(link)
                         ? 'bg-[#6D071A]/40 text-[#C9A227]'
                         : 'text-[#FAF6ED]/80 hover:bg-[#FAF6ED]/5'
                     }`}
                   >
                     {link.label}
-                    {isActive(link.href) && (
+                    {isActive(link) && (
                       <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
                     )}
                   </motion.a>

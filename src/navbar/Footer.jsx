@@ -7,11 +7,11 @@ import { UtensilsCrossed, Phone, Mail, MapPin, Heart, ArrowUp } from 'lucide-rea
 import { GopuramSilhouette, AuspiciousDivider, BrassDiya, TempleBorderLine, KaruppasamyWatermark } from './Decorations';
 
 const quickLinks = [
-  { label: 'Menu',              href: '#menu'     },
-  { label: 'Catering Services', href: '#catering' },
-  { label: 'Contact Us',        href: '#contact'  },
-  { label: 'Franchise Enquiry', href: '#contact'  },
-  { label: 'Customer Reviews',  href: '#contact'  },
+  { label: 'Home',               href: '/'        },
+  { label: 'Daily Meals',        href: '/meals'   },
+  { label: 'Menu',               href: '#menu'    },
+  { label: 'Catering Services',  href: '#catering'},
+  { label: 'Contact Us',         href: '#contact' },
 ];
 
 const SocialIcons = {
@@ -57,10 +57,14 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const handleNav = (e, href) => {
-    if (!href.startsWith('http')) {
-      e.preventDefault();
+    if (href.startsWith('http')) return;
+    e.preventDefault();
+    if (href.startsWith('#')) {
       const id = href.replace('#', '');
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // External route — full page navigation via window.location
+      window.location.href = href;
     }
   };
 
