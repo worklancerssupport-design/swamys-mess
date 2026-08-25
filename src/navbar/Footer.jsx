@@ -200,13 +200,15 @@ export default function Footer() {
             <h4 className="font-semibold text-[#C9A227] mb-4 text-xs tracking-widest uppercase">Hours</h4>
             <ul className="space-y-2.5 text-sm">
               {[
-                { day: 'Mon – Fri', time: '6:00 AM – 10:00 PM' },
-                { day: 'Saturday',  time: '6:00 AM – 11:00 PM' },
-                { day: 'Sunday',    time: '7:00 AM – 10:00 PM' },
-              ].map(({ day, time }) => (
-                <li key={day} className="flex justify-between gap-3 text-[#FAF6ED]/60">
-                  <span className="text-[#FAF6ED]/40 whitespace-nowrap">{day}</span>
-                  <span className="text-[#C9A227] whitespace-nowrap font-medium">{time}</span>
+                { day: 'Every Day', time: '8:00 AM – 2:30 PM', label: 'Breakfast & Lunch' },
+                { day: '',          time: '6:30 PM onwards',    label: 'Dinner' },
+              ].map(({ day, time, label }) => (
+                <li key={label} className="text-[#FAF6ED]/60">
+                  {day && <span className="text-[#FAF6ED]/40 block mb-0.5">{day}</span>}
+                  <div className="flex justify-between gap-3">
+                    <span className="text-[#FAF6ED]/50 text-xs">{label}</span>
+                    <span className="text-[#C9A227] whitespace-nowrap font-medium">{time}</span>
+                  </div>
                 </li>
               ))}
             </ul>

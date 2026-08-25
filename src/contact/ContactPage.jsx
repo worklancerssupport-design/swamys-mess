@@ -55,7 +55,7 @@ const contactCards = [
   {
     icon: Clock,
     title: 'Working Hours',
-    lines: ['Mon–Fri: 6 AM – 10 PM', 'Sat: 6 AM – 11 PM', 'Sun: 7 AM – 10 PM'],
+    lines: ['Every Day: 8 AM – 2:30 PM (Breakfast & Lunch)', 'Every Day: 6:30 PM onwards (Dinner)'],
     action: null,
     gradient: 'from-[#8B1025] to-[#6D071A]',
     bg: 'bg-white',

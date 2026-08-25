@@ -76,32 +76,6 @@ export default function Navbar({ onBookCatering }) {
     }
   }, [location.pathname]);
 
-  // Scroll to target section after navigating from another page
-  useEffect(() => {
-    const target = location.state?.scrollTo;
-    if (target && location.pathname === '/') {
-      const timer = setTimeout(() => {
-        const el = document.getElementById(target);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
-      navigate('/', { replace: true, state: {} });
-      return () => clearTimeout(timer);
-    }
-  }, [location.pathname]);
-
-  // Scroll to target section after navigating from another page
-  useEffect(() => {
-    const target = location.state?.scrollTo;
-    if (target && location.pathname === '/') {
-      const timer = setTimeout(() => {
-        const el = document.getElementById(target);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
-      navigate('/', { replace: true, state: {} });
-      return () => clearTimeout(timer);
-    }
-  }, [location.pathname]);
-
   const handleBookCatering = () => {
     setMobileOpen(false);
     onBookCatering?.();
