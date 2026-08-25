@@ -5,7 +5,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { CheckCircle, ChevronLeft, ChevronRight, Download, Loader2, Mail, Phone, Send, User, Users, Calendar, MapPin, ClipboardList, MessageSquare, X } from 'lucide-react';
-import axios from 'axios';
 import { buildEnquiryPdfHtml } from '../utils/pdf/buildEnquiryPdfHtml';
 import { downloadPdfFromHtml } from '../utils/pdf/downloadPdfFromHtml';
 
@@ -42,7 +41,7 @@ const FUNCTION_TYPES = [
   'Other',
 ];
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY';
+const WHATSAPP_NUMBER = '919360671134';
 
 const formatDate = (dateStr) => {
   if (!dateStr) return '';
@@ -132,7 +131,7 @@ export default function BookCatering({ isOpen, onClose }) {
     if (!form.phone.trim() || !/^\d{10}$/.test(form.phone)) {
       err.phone = 'Enter a valid 10-digit mobile number';
     }
-    if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)) {
+    if (form.email.trim() && !/\S+@\S+\.\S+/.test(form.email)) {
       err.email = 'Enter a valid email address';
     }
     setErrors(err);
@@ -152,7 +151,7 @@ export default function BookCatering({ isOpen, onClose }) {
     setSubmitStatus('sending');
     setSubmitError('');
 
-    // Step 2: Auto Generate & Download PDF
+    // Step 1: Auto Generate & Download PDF
     try {
       const html = buildEnquiryPdfHtml({
         fullName: form.fullName,
@@ -173,10 +172,11 @@ export default function BookCatering({ isOpen, onClose }) {
       console.error('PDF generation/download error:', pdfError);
       setSubmitError('Unable to generate the enquiry PDF. Please try again.');
       setSubmitStatus('error');
-      return; // Do NOT continue to email sending
+      return;
     }
 
-    // Step 3: Send Email
+    // Step 2: Build WhatsApp message and open wa.me
+    const formattedProgDate = formatDate(form.programDate);
     const now = new Date().toLocaleString('en-IN', {
       day: '2-digit',
       month: 'long',
@@ -186,77 +186,35 @@ export default function BookCatering({ isOpen, onClose }) {
       hour12: true,
     });
 
-    const formattedProgDate = formatDate(form.programDate);
-
-    const payload = {
-      access_key: WEB3FORMS_KEY,
-      subject: "New Catering Enquiry - Swamy's Mess & Catering",
-      from_name: "Swamy's Mess & Catering Website",
-      replyto: form.email,
-      message: `
-NEW CATERING ENQUIRY
-
-Customer Details
-Name:
-${form.fullName}
-Phone:
-${form.phone}
-Email:
-${form.email}
-
-Event Details
-Function:
-${form.functionType}
-Number of Guests:
-${form.guestCount}
-Program Date:
-${formattedProgDate}
-Program Location:
-${form.programLocation}
-
-Special Requirements:
-${form.specialRequirements || 'None'}
-
-Additional Message:
-${form.notes || 'None'}
-
-Submitted At:
-${now}
-
-Swamy's Mess & Catering
-      `.trim(),
-      'Full Name': form.fullName,
-      'Phone': form.phone,
-      'Email': form.email,
-      'Function': form.functionType,
-      'Number of Guests': form.guestCount,
-      'Program Date': formattedProgDate,
-      'Program Location': form.programLocation,
-      'Special Requirements': form.specialRequirements || 'None',
-      'Additional Message': form.notes || 'None',
-      'Submitted At': now,
-    };
-
-    try {
-      const response = await axios.post('https://api.web3forms.com/submit', payload, {
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        timeout: 15000,
-      });
-
-      if (response.data?.success) {
-        setCompletedForm(form);
-        setSubmitStatus('success');
-        setShowToast(true);
-        setStep(3);
-        setForm(DEFAULT_FORM); // Reset form only after successful submission
-      } else {
-        throw new Error(response.data?.message || 'Submission failed');
-      }
-    } catch (error) {
-      console.error('Booking submission error:', error);
-      setSubmitError("Your enquiry PDF has been downloaded, but we couldn't send the enquiry to our team. Please try submitting again.");
-      setSubmitStatus('error');
+    let waMessage = `🍽️ *NEW CATERING ENQUIRY*\n`;
+    waMessage += `Swamy's Mess & Catering\n\n`;
+    waMessage += `👤 *Customer Details*\n`;
+    waMessage += `Name: ${form.fullName}\n`;
+    waMessage += `Phone: ${form.phone}\n`;
+    if (form.email) waMessage += `Email: ${form.email}\n`;
+    waMessage += `\n🎉 *Event Details*\n`;
+    waMessage += `Function: ${form.functionType}\n`;
+    waMessage += `Guests: ${form.guestCount}\n`;
+    waMessage += `Date: ${formattedProgDate}\n`;
+    waMessage += `Location: ${form.programLocation}\n`;
+    if (form.specialRequirements) {
+      waMessage += `\n📋 *Special Requirements*\n${form.specialRequirements}\n`;
     }
+    if (form.notes) {
+      waMessage += `\n💬 *Additional Message*\n${form.notes}\n`;
+    }
+    waMessage += `\n📅 Submitted: ${now}`;
+
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMessage)}`;
+
+    setCompletedForm(form);
+    setSubmitStatus('success');
+    setShowToast(true);
+    setStep(3);
+    setForm(DEFAULT_FORM);
+
+    // Open WhatsApp in a new tab
+    window.open(waUrl, '_blank');
   };
 
   const handleDownloadPdf = async () => {
@@ -551,7 +509,7 @@ Swamy's Mess & Catering
 
                       {/* Email */}
                       <label className="block">
-                        <span className="block text-sm font-semibold text-[#6D071A] mb-1.5 font-sans">Email Address</span>
+                        <span className="block text-sm font-semibold text-[#6D071A] mb-1.5 font-sans">Email Address <span className="text-[#6D071A]/40 font-normal">(optional)</span></span>
                         <div className="relative">
                           <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#6D071A]/60 pointer-events-none">
                             <Mail size={16} />
@@ -624,12 +582,12 @@ Swamy's Mess & Catering
                         <CheckCircle size={40} className="text-white" />
                       </div>
                       <h3 className="text-2xl font-extrabold text-[#6D071A] animate-fadeInUp font-display">
-                        ✓ Enquiry Submitted Successfully!
+                        ✓ Enquiry Ready — Send on WhatsApp!
                       </h3>
                       
                       <div className="text-[#6D071A]/80 text-sm leading-relaxed max-w-md mx-auto space-y-2 font-medium">
                         <p>Your catering enquiry PDF has been downloaded.</p>
-                        <p>Your enquiry has been sent to our team.</p>
+                        <p>WhatsApp has been opened with your enquiry — please tap <strong>Send</strong> to deliver it to our team.</p>
                         <p>We will contact you shortly.</p>
                       </div>
 
@@ -696,12 +654,12 @@ Swamy's Mess & Catering
                       {submitStatus === 'sending' ? (
                         <>
                           <Loader2 size={16} className="animate-spin text-[#C9A227]" />
-                          Submitting...
+                          Preparing...
                         </>
                       ) : (
                         <>
                           <Send size={16} />
-                          Submit Enquiry
+                          Send on WhatsApp
                         </>
                       )}
                     </button>
