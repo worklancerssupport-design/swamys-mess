@@ -28,7 +28,7 @@ const RAW_URL = `https://raw.githubusercontent.com/${ENV.VITE_GITHUB_OWNER}/${EN
 const PHONE_PRIMARY_DISPLAY = '+91 93606 71134';
 const PHONE_PRIMARY_TEL     = '+919360671134';
 const WHATSAPP_HREF         = 'https://wa.me/919360671134';
-const ADDRESS_LINE          = '6, Sapthagiri St, Baby Nagar, Velachery, Chennai – 600042';
+const ADDRESS_LINE          = '6, Sapthagiri St, Annai Indra Nagar, Baby Nagar, Velachery, Chennai – 600042';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -335,7 +335,7 @@ function SupportingNotes({ cats }) {
     {
       icon: MapPin,
       title: 'Dine-in & Takeaway',
-      desc: 'Visit us at 6, Sapthagiri Street, Baby Nagar, Velachery for a hot plate, or call ahead to place a takeaway / parcel order.',
+      desc: 'Visit us at 6, Sapthagiri Street, Annai Indra Nagar, Baby Nagar, Velachery for a hot plate, or call ahead to place a takeaway / parcel order.',
     },
     {
       icon: Phone,

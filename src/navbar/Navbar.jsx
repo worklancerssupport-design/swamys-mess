@@ -55,13 +55,52 @@ export default function Navbar({ onBookCatering }) {
     }
     const id = link.href.replace('#', '');
     if (location.pathname !== '/') {
-      // We're on a different page — go home first, then scroll
-      navigate('/' + link.href);
+      // We're on a different page — go home first, then scroll after render
+      navigate('/', { state: { scrollTo: id } });
       return;
     }
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  // Scroll to target section after navigating from another page
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (target && location.pathname === '/') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+      navigate('/', { replace: true, state: {} });
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
+
+  // Scroll to target section after navigating from another page
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (target && location.pathname === '/') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+      navigate('/', { replace: true, state: {} });
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
+
+  // Scroll to target section after navigating from another page
+  useEffect(() => {
+    const target = location.state?.scrollTo;
+    if (target && location.pathname === '/') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById(target);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 150);
+      navigate('/', { replace: true, state: {} });
+      return () => clearTimeout(timer);
+    }
+  }, [location.pathname]);
 
   const handleBookCatering = () => {
     setMobileOpen(false);
@@ -141,12 +180,12 @@ export default function Navbar({ onBookCatering }) {
 
             {/* ── Right Controls ── */}
             <div className="flex items-center gap-2">
-              {/* Book Catering CTA */}
+              {/* Book Catering CTA — hidden on mobile */}
               <motion.button
                 onClick={handleBookCatering}
                 whileHover={{ scale: 1.03, boxShadow: '0 8px 20px rgba(109,7,26,0.3)' }}
                 whileTap={{ scale: 0.97 }}
-                className="inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-[#FAF6ED] text-xs sm:text-sm font-semibold rounded-xl shadow-md border border-[#C9A227]/30 transition-all"
+                className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-[#FAF6ED] text-xs sm:text-sm font-semibold rounded-xl shadow-md border border-[#C9A227]/30 transition-all"
               >
 <Calendar size={13} className="text-[#C9A227]" />
                   Book Catering

@@ -173,7 +173,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-start gap-2.5 text-sm text-[#FAF6ED]/60">
                 <MapPin size={14} className="text-[#C9A227] flex-shrink-0 mt-0.5" />
-                <span>6, Sapthagiri St, Baby Nagar,<br />Velachery, Chennai – 600042</span>
+                <span>6, Sapthagiri St, Annai Indra Nagar, Baby Nagar,<br />Velachery, Chennai – 600042</span>
               </li>
               <li className="flex items-center gap-2.5 text-sm text-[#FAF6ED]/60">
                 <Phone size={14} className="text-[#C9A227] flex-shrink-0" />
@@ -183,8 +183,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-sm text-[#FAF6ED]/60">
                 <Mail size={14} className="text-[#C9A227] flex-shrink-0" />
-                <a href="mailto:worklancers.support@gmail.com" className="hover:text-[#C9A227] transition-colors truncate">
-                  worklancers.support@gmail.com
+                <a href="mailto:rbalachandranchandran268@gmail.com" className="hover:text-[#C9A227] transition-colors truncate">
+                  rbalachandranchandran268@gmail.com
                 </a>
               </li>
             </ul>

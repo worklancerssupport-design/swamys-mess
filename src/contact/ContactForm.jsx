@@ -125,7 +125,7 @@ Source: Swamy's Mess Website — Franchise Enquiry Form
         </motion.p>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.45 }}
           className="text-xs text-[#6D071A]/40 mb-7">
-          Email delivered to: worklancers.support@gmail.com
+          Email delivered to: rbalachandranchandran268@gmail.com
         </motion.p>
         <button onClick={() => setStatus('idle')}
           className="px-7 py-2.5 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white rounded-xl text-sm font-semibold hover:opacity-95 transition-all shadow-md border border-[#C9A227]/30">

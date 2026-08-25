@@ -15,7 +15,7 @@ const contactCards = [
   {
     icon: MapPin,
     title: 'Visit Us',
-    lines: ['6, Sapthagiri St, Baby Nagar', 'Velachery, Chennai – 600042'],
+    lines: ['6, Sapthagiri St, Annai Indra Nagar, Baby Nagar', 'Velachery, Chennai – 600042'],
     action: 'https://www.google.com/maps/search/?api=1&query=6,+Sapthagiri+St,+Baby+Nagar,+Velachery,+Chennai,+Greater+Chennai,+Tamil+Nadu+600042',
     actionLabel: 'Get Directions',
     gradient: 'from-[#8B1025] to-[#6D071A]',
@@ -45,8 +45,8 @@ const contactCards = [
   {
     icon: Mail,
     title: 'Email Us',
-    lines: ['worklancers.support@gmail.com'],
-    action: 'mailto:worklancers.support@gmail.com',
+    lines: ['rbalachandranchandran268@gmail.com'],
+    action: 'mailto:rbalachandranchandran268@gmail.com',
     actionLabel: 'Send Email',
     gradient: 'from-[#8B1025] to-[#6D071A]',
     bg: 'bg-white',
@@ -222,7 +222,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-[#6D071A] font-display">Swamy's Mess & Catering</p>
-                      <p className="text-[10px] text-[#6D071A]/70 font-light">6, Sapthagiri St, Baby Nagar, Velachery, Chennai</p>
+                      <p className="text-[10px] text-[#6D071A]/70 font-light">6, Sapthagiri St, Annai Indra Nagar, Baby Nagar, Velachery, Chennai</p>
                     </div>
                   </div>
                 </div>

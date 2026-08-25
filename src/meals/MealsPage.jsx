@@ -39,7 +39,7 @@ const PHONE_PRIMARY = '+919360671134';
 const PHONE_PRIMARY_DISPLAY = '+91 93606 71134';
 const PHONE_SECONDARY_DISPLAY = '+91 74483 62352';
 const WHATSAPP_HREF = 'https://wa.me/919360671134';
-const ADDRESS_LINE = '6, Sapthagiri St, Baby Nagar, Velachery, Chennai – 600042';
+const ADDRESS_LINE = '6, Sapthagiri St, Annai Indra Nagar, Baby Nagar, Velachery, Chennai – 600042';
 const MAPS_HREF =
   'https://www.google.com/maps/search/?api=1&query=6,+Sapthagiri+St,+Baby+Nagar,+Velachery,+Chennai+600042';
 
@@ -110,7 +110,7 @@ function Hero({ cats }) {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#C9A227]" />
           </span>
           <span className="text-[#FAF6ED] text-[10px] sm:text-xs font-bold tracking-[0.25em] uppercase">
-            Velachery · Chennai · Since 18+ Years
+            Velachery · Chennai
           </span>
         </motion.div>
 
@@ -140,11 +140,11 @@ function Hero({ cats }) {
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, delay: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
           <a
             href={WHATSAPP_HREF}
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-7 sm:px-9 py-4 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white font-bold rounded-xl shadow-xl transition-all text-sm sm:text-base border border-[#C9A227]/30 hover:shadow-2xl"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-white font-bold rounded-xl shadow-xl transition-all text-sm sm:text-base border border-[#C9A227]/30 hover:shadow-2xl"
           >
             <MessageCircle size={17} />
             Order / Enquire
@@ -152,7 +152,7 @@ function Hero({ cats }) {
           </a>
           <button
             onClick={() => navigate('/menu')}
-            className="inline-flex items-center gap-2.5 px-7 sm:px-9 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 transition-all text-sm sm:text-base"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 sm:px-9 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 transition-all text-sm sm:text-base"
           >
             <UtensilsCrossed size={17} className="text-[#C9A227]" />
             View Full Menu
@@ -528,7 +528,7 @@ function WhatYouGet({ cats }) {
           <KuthuvilakkuLamp className="absolute -bottom-4 -right-2 pointer-events-none hidden md:block" height={200} opacity={0.08} />
           <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {cats.map(c => (
-              <div key={c.name} className="border-r last:border-r-0 border-[#C9A227]/20 px-2">
+              <div key={c.name} className="px-2">
                 <p className="text-2xl sm:text-3xl font-black text-[#E5C158] font-display">{c.items.length}</p>
                 <p className="text-[10px] sm:text-xs text-[#FAF6ED]/65 uppercase tracking-widest mt-1 font-bold">{c.name}</p>
                 <p className="text-[10px] text-[#FAF6ED]/45 mt-0.5">items on menu</p>
@@ -722,8 +722,8 @@ function HowItWorks() {
 function ServiceArea() {
   const nearby = [
     'Velachery', 'Baby Nagar', 'Medavakkam', 'Madipakkam',
-    'Pallikaranai', 'Tambaram', 'Chromepet', 'Guindy',
-    'Saidapet', 'Adyar', 'Sholinganallur', 'Perungalathur',
+    'Pallikaranai', 'Ramapuram', 'Chromepet', 'Guindy',
+    'Saidapet', 'Adyar', 'Sholinganallur', 'Manapakkam', 'Alandur', 'Kotturpuram',
   ];
 
   return (

@@ -10,7 +10,7 @@ const mockPdfData = {
   functionType: 'Marriage Orders',
   guestCount: '250',
   programDate: '2026-10-15',
-  programLocation: '6, Sapthagiri St, Baby Nagar, Velachery, Chennai',
+  programLocation: '6, Sapthagiri St, Annai Indra Nagar, Baby Nagar, Velachery, Chennai',
   specialRequirements: 'Pure vegetarian leaf service, 5 sweets, traditional welcome drinks',
   notes: 'This is a PDF generation test. Please verify the final output is readable, high contrast, and fully rendered in deep red and warm gold.',
 };

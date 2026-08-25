@@ -28,7 +28,7 @@ const PHONE_PRIMARY = '+919360671134';
 const PHONE_PRIMARY_DISPLAY = '+91 93606 71134';
 const PHONE_SECONDARY_DISPLAY = '+91 74483 62352';
 const WHATSAPP_HREF = 'https://wa.me/919360671134';
-const ADDRESS_LINE = '6, Sapthagiri St, Baby Nagar, Velachery, Chennai – 600042';
+const ADDRESS_LINE = '6, Sapthagiri St, Annai Indra Nagar, Baby Nagar, Velachery, Chennai – 600042';
 const MAPS_HREF =
   'https://www.google.com/maps/search/?api=1&query=6,+Sapthagiri+St,+Baby+Nagar,+Velachery,+Chennai+600042';
 
@@ -72,7 +72,7 @@ function Hero({ cateringCats }) {
         >
           <Leaf size={13} className="text-[#C9A227]" />
           <span className="text-[#C9A227] text-xs font-semibold tracking-widest uppercase">
-            Pure Vegetarian · Home-Style · Velachery
+            Pure Vegetarian · Home-Style
           </span>
         </motion.div>
 
@@ -146,7 +146,7 @@ function Hero({ cateringCats }) {
       {/* Floating trust strip */}
       <div className="absolute bottom-0 left-0 right-0 z-10 bg-black/35 backdrop-blur-md border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 py-4 flex flex-wrap justify-center gap-x-8 gap-y-2 sm:gap-x-12 text-[#FAF6ED]/95">
-          <div className="flex items-center gap-2">
+          <div className="hidden sm:flex items-center gap-2">
             <Star size={14} className="text-[#C9A227] fill-[#C9A227]" />
             <div>
               <p className="font-bold text-white text-sm leading-none">18+ Years</p>
@@ -250,7 +250,7 @@ function SmallFunction() {
               quiet gathering, we'll treat it with the same care as a grand wedding — just the right
               portions for your guest count.
             </motion.p>
-            <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center sm:justify-start gap-3">
               <a
                 href={`${WHATSAPP_HREF}?text=${encodeURIComponent("Hi, I need catering for a small function. Please share details.")}`}
                 target="_blank" rel="noopener noreferrer"
@@ -640,8 +640,8 @@ function WhySwamys() {
 function ServiceArea() {
   const nearby = [
     'Velachery', 'Baby Nagar', 'Medavakkam', 'Madipakkam',
-    'Pallikaranai', 'Tambaram', 'Chromepet', 'Guindy',
-    'Saidapet', 'Adyar', 'Sholinganallur', 'Perungalathur',
+    'Pallikaranai', 'Ramapuram', 'Chromepet', 'Guindy',
+    'Saidapet', 'Adyar', 'Sholinganallur', 'Manapakkam', 'Alandur', 'Kotturpuram',
   ];
 
   return (
@@ -972,7 +972,7 @@ function FinalCTA() {
             menu plan and discuss the details with you directly.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-md mx-auto sm:max-w-none">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto max-w-md mx-auto sm:max-w-none">
             <a
               href={`${WHATSAPP_HREF}?text=${encodeURIComponent("Hi, I'd like to enquire about catering for an event.")}`}
               target="_blank" rel="noopener noreferrer"
@@ -982,17 +982,17 @@ function FinalCTA() {
               Enquire for Catering
               <ArrowRight size={16} />
             </a>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href={`tel:${PHONE_PRIMARY}`}
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm"
               >
                 <Phone size={15} className="text-[#C9A227]" />
                 {PHONE_PRIMARY_DISPLAY}
               </a>
               <a
                 href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-white/5 backdrop-blur-sm border border-white/25 text-[#FAF6ED] font-bold rounded-xl hover:bg-white/10 hover:scale-[1.02] active:scale-[0.98] transition-all text-sm"
               >
                 <MessageCircle size={15} className="text-[#C9A227]" />
                 WhatsApp Us

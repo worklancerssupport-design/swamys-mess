@@ -4,7 +4,7 @@
 // ============================================
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, Star, Clock, Award, BookOpen } from 'lucide-react';
+import { ChevronDown, Star, Clock, Award, BookOpen, Calendar } from 'lucide-react';
 import MenuBook from './MenuBook';
 import { GopuramSilhouette, BrassDiya, TempleBorderLine, VinayagarWatermark } from '../navbar/Decorations';
 
@@ -131,7 +131,7 @@ export default function Hero({ onBookCatering, cats }) {
         </div>
 
         {/* ── Main content ────────────────────────── */}
-        <div className="relative z-20 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+        <div className="relative z-20 text-center px-4 sm:px-6 max-w-4xl mx-auto pt-16 sm:pt-0">
           {/* Subtle Lord Ganesha / Vinayagar watermark behind the text */}
           <VinayagarWatermark className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0" size={320} opacity={0.05} />
 
@@ -140,7 +140,7 @@ export default function Hero({ onBookCatering, cats }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative z-10 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6D071A]/60 border border-[#C9A227]/40 backdrop-blur-md mb-6 shadow-lg"
+            className="relative z-10 hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#6D071A]/60 border border-[#C9A227]/40 backdrop-blur-md mb-6 shadow-lg"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227] animate-pulse" />
             <span className="text-[#FAF6ED] text-xs font-semibold tracking-widest uppercase">
@@ -179,25 +179,26 @@ export default function Hero({ onBookCatering, cats }) {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="relative z-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            {/* Primary CTA — opens the menu book */}
+            {/* Primary CTA — Book Catering */}
             <motion.button
-              onClick={() => setBookOpen(true)}
+              onClick={onBookCatering}
               whileHover={{ scale: 1.03, boxShadow: '0 16px 40px rgba(109,7,26,0.35)' }}
               whileTap={{ scale: 0.97 }}
               className="group relative px-8 py-4 bg-gradient-to-r from-[#8B1025] to-[#6D071A] text-[#FAF6ED] font-bold text-base rounded-2xl shadow-xl overflow-hidden min-w-[200px] flex items-center justify-center gap-2.5 border border-[#C9A227]/30"
             >
-              <BookOpen size={18} className="text-[#C9A227]" />
-              <span>View Menu</span>
+              <Calendar size={18} className="text-[#C9A227]" />
+              <span>Book Catering</span>
             </motion.button>
 
-            {/* Secondary CTA */}
+            {/* Secondary CTA — View Menu */}
             <motion.button
-              onClick={onBookCatering}
+              onClick={() => setBookOpen(true)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-[#FAF6ED]/25 text-[#FAF6ED] font-bold text-base rounded-2xl hover:bg-white/10 transition-all duration-200 min-w-[200px]"
+              className="px-8 py-4 bg-white/5 backdrop-blur-sm border border-[#FAF6ED]/25 text-[#FAF6ED] font-bold text-base rounded-2xl hover:bg-white/10 transition-all duration-200 min-w-[200px] flex items-center justify-center gap-2.5"
             >
-              Book Catering
+              <BookOpen size={18} className="text-[#C9A227]" />
+              View Menu
             </motion.button>
           </motion.div>
 
@@ -206,16 +207,16 @@ export default function Hero({ onBookCatering, cats }) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1 }}
-            className="relative z-10 mt-16 flex flex-wrap justify-center gap-3 sm:gap-4 px-6 py-4 rounded-2xl bg-black/30 backdrop-blur-md border border-white/[0.08] shadow-xl"
+            className="relative z-10 mt-16 flex flex-nowrap justify-center gap-2 sm:gap-4 px-4 sm:px-6 py-4 rounded-2xl bg-black/30 backdrop-blur-md border border-white/[0.08] shadow-xl"
           >
             {[
               { icon: Star, value: '4.9★', label: 'Verified Rating' },
               { icon: Clock, value: '18+ Years', label: 'Serving Tradition' },
               { icon: Award, value: '1000+', label: 'Events Catered' },
-            ].map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-3 text-[#FAF6ED]/80 px-2">
-                <div className="w-10 h-10 rounded-xl bg-[#6D071A]/60 border border-[#C9A227]/35 flex items-center justify-center shadow-inner">
-                  <Icon size={16} className="text-[#C9A227]" />
+            ].map(({ icon: Icon, value, label }, i) => (
+              <div key={label} className={`flex items-center gap-2 sm:gap-3 text-[#FAF6ED]/80 px-1 sm:px-2 ${i === 2 ? 'hidden sm:flex' : ''}`}>
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-[#6D071A]/60 border border-[#C9A227]/35 flex items-center justify-center shadow-inner">
+                  <Icon size={14} className="text-[#C9A227] sm:w-4 sm:h-4" />
                 </div>
                 <div className="text-left leading-tight">
                   <p className="font-bold text-[#FAF6ED] text-sm drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">{value}</p>

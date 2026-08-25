@@ -86,7 +86,7 @@ export default function MenuPage({ cats, onBookCatering }) {
                   Enjoy fresh, homestyle South Indian breakfast, lunch and dinner every day with our monthly food subscription. Prepared daily under clean, hygienic conditions.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-y-2.5 gap-x-4 justify-center md:justify-start">
-                  {['Pure Vegetarian', 'Zero Artificial Preservatives', 'Daily Menu Variations'].map(feat => (
+                  {['Zero Artificial Preservatives', 'Daily Menu Variations', 'Pure Vegetarian'].map(feat => (
                     <span key={feat} className="flex items-center gap-1.5 text-xs text-[#6D071A]/90 font-medium">
                       <CheckCircle2 size={14} className="text-[#B8922E]" /> {feat}
                     </span>
